@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+$light-gray: #e0e0e0;
+$dark-gray: #7a7a7a;
+$moss-green: #91924f;
+$dark-blue: #011d28;
+$white: #ffffff;
+
+#root {
+  font-size: 16px;
+}
+
+html {
+  height: 100vh;
+  position: relative;
+  background: $light-gray no-repeat center center fixed;
+}
+
+body {
+  height: 100vh;
+}
+
+.pageContainer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+.navBar {
+  padding: 1rem;
+  background: $dark-gray;
+
+  .navItem {
+    padding: 1rem;
+    color: $white;
+    font-family: 'Roboto';
+    font-size: 1.2em;
+    text-decoration: none;
+  }
+}
+
+.homeContainer {
+  margin: 5rem 2rem;
+
+  .introductionTitle {
+    color: $moss-green;
+    font-family: 'Roboto';
+    font-weight: lighter;
+    font-size: 3.125em;
+    letter-spacing: 0.01em;
+  }
+
+  .introductionBody {
+    color: $dark-blue;
+    font-family: 'Poppins';
+    font-size: 1em;
+    line-height: 1.5em;
+    letter-spacing: 0.01em;
+  }
+}
+
+.tictactoeContainer {
+  display: grid;
+  grid-template-rows: 0.2fr 1fr;
+  
+  /* Game info */
+  .infoContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  
+    margin: 1rem;
+
+    .restartBtn {
+      margin: 0.5rem;
+      
+      border: 0rem;
+      border-radius: 0.2rem;
+    
+      width: 6rem;
+      height: 6rem;
+      padding: 1rem;
+      background:  $dark-gray;
+    
+      color: $white;
+      font-family: 'Roboto', sans-serif;
+      letter-spacing: 0.2rem;
+      font-size: 4rem;
+      font-weight: bold;
+    }
+    
+    .restartBtn:hover {
+      background: $moss-green;
+    }
+    
+    .restartBtn:active {
+      background: $dark-gray;
+    }
+    
+    .current {
+      margin: 0.5rem;
+    
+      border-radius: 0.2rem;
+    
+      width: 6rem;
+      height: 6rem;
+    
+      text-align: center;
+      vertical-align: middle;
+      line-height: 5.2rem;
+      
+      text-align: center;
+      color: $moss-green;
+      font-family: 'Roboto', sans-serif;
+      font-size: 6rem;
+      font-weight: bold;
+    }
+  }
+  
+  /* Game grid */
+  .cellContainer {
+    justify-self: center;
+    margin: 0.5rem;
+    margin-bottom: 3rem;
+  
+    width: fit-content;
+    height: fit-content;
+  
+    border: 0.4rem solid $moss-green;
+    border-radius: 0.2rem;
+  
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    grid-gap: 0.3rem;
+    padding: 0.2rem;
+    background: #91924F;
+
+    .gridBtn {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+    
+      width: 12rem;
+      height: 12rem;
+    
+      border: 0rem solid $dark-blue;
+      border-radius: 0.1rem;
+      
+      padding-top: 1.5rem;
+      background: $white;
+      color: #91924F;
+    
+      font-size: 9rem;
+    }
+    
+    .gridBtn:hover {
+      background: $light-gray;
+    }
+    
+    .gridBtn:active {
+      background: $white;
+    }
+  }
+}
+
+/* Notes */
+.notesContainer {
+  margin: 5rem 2rem;
+
+  .notesForm {
+    width: 40rem;
+
+    border: 0px solid $dark-gray;
+    border-radius: 0.1rem;
+    padding: 1rem;
+
+    .titleContainer {
+      margin: 1rem;
+
+      display: grid;
+      grid-template-columns: 0.2fr 1fr;
+
+      .titleLabel {
+
+        font-family: Roboto;
+        font-size: 1.3em;
+      }
+
+      .titleInput {
+        width: 20rem;
+        box-sizing: border-box;
+
+        border: 1px solid $dark-gray;
+
+        font: 1em 'Poppins';
+      }
+
+      .titleInput:focus {
+        outline: none;
+        border: 2px solid $moss-green;
+      }
+    }
+    
+    .bodyContainer {
+      margin: 1rem;
+
+      display: grid;
+      grid-template-columns: 0.2fr 1fr;
+
+      .bodyLabel {
+        font-family: Roboto;
+        font-size: 1.3em;
+      }
+
+      .bodyInput {
+        width: 20rem;
+        height: 8rem;
+        box-sizing: border-box;
+
+        border: 1px solid $dark-gray;
+
+        font: 1em 'Poppins';
+      }
+
+      .bodyInput:focus {
+        outline: none;
+        border: 2px solid $moss-green;
+      }
+    }
+
+    .buttonContainer {
+      display: flex;
+
+      .submitButton {
+        margin: auto;
+        
+        border: 0rem;
+        border-radius: 0.2rem;
+      
+        padding: 0.6rem;
+        background:  $dark-gray;
+      
+        color: $white;
+        font-family: 'Roboto';
+        letter-spacing: 0.2rem;
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+      
+      .submitButton:hover {
+        background: $moss-green;
+      }
+      
+      .submitButton:active {
+        background: $dark-gray;
+      }
+    }
+  }
+
+  .notelistContainer {
+    border: 0px solid $dark-gray;
+    padding-left: 0.2rem;
+
+    list-style-type: none;
+
+    .noteContainer {
+      margin: 1rem;
+
+      .noteTitle {
+        margin: 1rem;
+
+        font-family: Roboto;
+        font-weight: bold;
+        font-size: 1.5em;
+      }
+
+      .noteBody {
+        margin: 1rem;
+
+        font: 1em 'Poppins';
+      }
+    }
+  }
+}
+
+
+/* Footer */
+.footerContainer {
+  padding-top: 0.4rem;
+  padding-left: 1rem;
+  padding-bottom: 0.6rem;
+  background: $dark-gray;
+  color: $white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.75em;
+}
