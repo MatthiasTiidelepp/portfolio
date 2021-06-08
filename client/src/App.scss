@@ -271,20 +271,52 @@ body {
     list-style-type: none;
 
     .noteContainer {
+      display: grid;
+      grid-template-columns: 0.5fr 1fr;
+
       margin: 1rem;
 
-      .noteTitle {
-        margin: 1rem;
-
-        font-family: Roboto;
-        font-weight: bold;
-        font-size: 1.5em;
+      .noteTextContainer {
+        .noteTitle {
+          margin: 1rem;
+  
+          font-family: Roboto;
+          font-weight: bold;
+          font-size: 1.5em;
+        }
+  
+        .noteBody {
+          margin: 1rem;
+  
+          font: 1em 'Poppins';
+        }
       }
 
-      .noteBody {
-        margin: 1rem;
+      .noteDeleteButton {
+        justify-self: start;
+        align-self: center;
 
-        font: 1em 'Poppins';
+        width: fit-content;
+        height: fit-content;
+
+        border: 0rem;
+        border-radius: 0.2rem;
+      
+        padding: 0.6rem;
+        background:  $dark-gray;
+      
+        color: $white;
+        font-family: 'Roboto';
+        letter-spacing: 0.2rem;
+        font-size: 1.2em;
+      }
+      
+      .noteDeleteButton:hover {
+        background: $moss-green;
+      }
+      
+      .noteDeleteButton:active {
+        background: $dark-gray;
       }
     }
   }
