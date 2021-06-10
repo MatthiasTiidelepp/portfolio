@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import noteService from '../../services/notes'
 import Note from './Note';
+import NoteForm from './NoteForm';
 
 const Notes = () => {
   const [notes, setNotes] = useState(null)
@@ -51,37 +52,18 @@ const Notes = () => {
 
   return (
     <div className="notesContainer">
+      
       {!notes ?
-          null :
-          <form className="notesForm" onSubmit={handleFormSubmit}>
-            <div className="titleContainer">
-              <label className="titleLabel">Title:</label>
-              <input
-                className="titleInput"
-                type="text"
-                name="title"
-                value={newTitle}
-                onChange={handleTitleChange}
-                required
-              />
-            </div>
-            <div className="bodyContainer">
-              <label className="bodyLabel">Content:</label>
-              <textarea
-                className="bodyInput"
-                name="body"
-                rows="5"
-                cols="33"
-                value={newBody}
-                onChange={handleBodyChange}
-                required
-              />
-            </div>
-            <div className="buttonContainer">
-              <button className="submitButton" type="submit">Submit</button>
-            </div>
-          </form>
+        null :
+        <NoteForm
+          handleFormSubmit={handleFormSubmit}
+          newTitle={newTitle}
+          handleTitleChange={handleTitleChange}
+          newBody={newBody}
+          handleBodyChange={handleBodyChange}
+        />
       }
+
       <ul className="notelistContainer">
         {!notes ?
           null :

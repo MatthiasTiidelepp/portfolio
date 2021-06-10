@@ -125,49 +125,64 @@ body {
   }
   
   /* Game grid */
-  .cellContainer {
+  .gridContainer {
     justify-self: center;
-    margin: 0.5rem;
-    margin-bottom: 3rem;
-  
-    width: fit-content;
-    height: fit-content;
-  
-    border: 0.4rem solid $moss-green;
-    border-radius: 0.2rem;
-  
-    display: grid;
-    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-    grid-gap: 0.3rem;
-    padding: 0.2rem;
-    background: #91924F;
 
-    .gridBtn {
-      display: flex;
-      justify-content: center;
-      align-content: center;
+    .cellContainer {
+      margin: 0.5rem;
+      margin-bottom: 3rem;
     
-      width: 12rem;
-      height: 12rem;
+      width: fit-content;
+      height: fit-content;
     
-      border: 0rem solid $dark-blue;
-      border-radius: 0.1rem;
+      border: 0.4rem solid $moss-green;
+      border-radius: 0.2rem;
+    
+      display: grid;
+      grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+      grid-gap: 0.3rem;
+      padding: 0.2rem;
+      background: #91924F;
+  
+      .gridBtn {
+        display: flex;
+        justify-content: center;
+        align-content: center;
       
-      padding-top: 1.5rem;
-      background: $white;
-      color: #91924F;
-    
-      font-size: 9rem;
+        width: 12rem;
+        height: 12rem;
+      
+        border: 0rem solid $dark-blue;
+        border-radius: 0.1rem;
+        
+        padding-top: 1.5rem;
+        background: $white;
+        color: #91924F;
+      
+        font-size: 9rem;
+      }
+      
+      .gridBtn:hover {
+        background: $light-gray;
+      }
+      
+      .gridBtn:active {
+        background: $white;
+      }
     }
-    
-    .gridBtn:hover {
-      background: $light-gray;
-    }
-    
-    .gridBtn:active {
-      background: $white;
+
+    // Game conclusion screen
+    .gameConclusionContainer {
+  
+      .gameConclusionText {
+        color: $moss-green;
+        font-family: 'Poppins';
+        font-size: 6em;
+      }
     }
   }
+
+
 }
 
 /* Notes */

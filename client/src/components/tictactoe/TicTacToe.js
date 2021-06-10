@@ -14,6 +14,10 @@ function TicTacToe() {
   const [grid, setGrid] = useState([{1: '', 2: '',3: ''}, {4: '', 5: '', 6: ''}, {7: '', 8: '', 9: ''}])
   // State for checking if the board is full (9) without meeting any victory condition, which means a draw
   const [full, setFull] = useState(1)
+  // State for checking if a victory or draw condition has been met
+  const [finished, setFinished] = useState(false)
+  // State for which symbol won or draw
+  const [conclusion, setConclusion] = useState('')
 
   const handleRestart = () => {
     setCurrent('x')
@@ -21,6 +25,8 @@ function TicTacToe() {
     setGrid([{1: '', 2: '',3: ''}, {4: '', 5: '', 6: ''}, {7: '', 8: '', 9: ''}])
 
     setFull(1)
+    setFinished(false)
+    setConclusion('')
   }
 
   const handleButton = (e) => {
@@ -139,13 +145,23 @@ function TicTacToe() {
       grid[2]['7'] === 'o')
     ) {
       if (current === 'x') {
-        window.alert('x wins!')
+        setFinished(true)
+        setConclusion('X wins')
+        // window.alert('x wins!')
+        // handleRestart()
+
       } else {
-        window.alert('o wins!')
+        setFinished(true)
+        setConclusion('o wins!')
+        // window.alert('o wins!')
+        // handleRestart()
       }
     // Condition for draw (board full without victory condition)
     } else if (full === 9) {
-      window.alert('Draw!')
+      setFinished(true)
+      setConclusion('Draw!')
+      // window.alert('Draw!')
+      // handleRestart()
     }
   }
 
@@ -157,6 +173,8 @@ function TicTacToe() {
         />
   
         <Grid
+          finished={finished}
+          conclusion={conclusion}
           handleButton={handleButton}
           cells={cells}
         />

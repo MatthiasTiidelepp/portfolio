@@ -1,37 +1,29 @@
 import React from 'react'
+import GridButton from './GridButton'
 
-const TicTacToe = ({ handleButton, cells }) => {
+const TicTacToe = ({ finished, conclusion, handleButton, cells }) => {
   return (
-    <div className="cellContainer">
-      <div>
-        <button className="gridBtn" id="1" onClick={handleButton}>{cells[0]['1']}</button>
-      </div>
-      <div>
-        <button className="gridBtn" id="2" onClick={handleButton}>{cells[0]['2']}</button>
-      </div>
-      <div>
-        <button className="gridBtn" id="3" onClick={handleButton}>{cells[0]['3']}</button>
-      </div>
+    <div className="gridContainer">
+      {finished ?
+        
+        <div className="gameConclusionContainer">
+          <p className="gameConclusionText">{conclusion}</p>
+        </div> :
 
-      <div>
-        <button className="gridBtn" id="4" onClick={handleButton}>{cells[1]['4']}</button>
-      </div>
-      <div>
-        <button className="gridBtn" id="5" onClick={handleButton}>{cells[1]['5']}</button>
-      </div>
-      <div>
-        <button className="gridBtn" id="6" onClick={handleButton}>{cells[1]['6']}</button>
-      </div>
+        <div className="cellContainer">
+          <GridButton id="1" handleButton={handleButton} cell={cells[0]['1']} />
+          <GridButton id="2" handleButton={handleButton} cell={cells[0]['2']} />
+          <GridButton id="3" handleButton={handleButton} cell={cells[0]['3']} />
 
-      <div>
-        <button className="gridBtn" id="7" onClick={handleButton}>{cells[2]['7']}</button>
-      </div>
-      <div>
-        <button className="gridBtn" id="8" onClick={handleButton}>{cells[2]['8']}</button>
-      </div>
-      <div>
-        <button className="gridBtn" id="9" onClick={handleButton}>{cells[2]['9']}</button>
-      </div>
+          <GridButton id="4" handleButton={handleButton} cell={cells[1]['4']} />
+          <GridButton id="5" handleButton={handleButton} cell={cells[1]['5']} />
+          <GridButton id="6" handleButton={handleButton} cell={cells[1]['6']} />
+
+          <GridButton id="7" handleButton={handleButton} cell={cells[2]['7']} />
+          <GridButton id="8" handleButton={handleButton} cell={cells[2]['8']} />
+          <GridButton id="9" handleButton={handleButton} cell={cells[2]['9']} />
+        </div>
+      }
     </div>
   )
 }
