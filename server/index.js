@@ -12,21 +12,27 @@ app.use(express.json())
 app.use(morgan('tiny'))
 
 const errorHandler = (error, request, response, next) => {
-  
+  console.log(error.message)
+
+  if (error.name === 'CastError') {
+    return response.status(400).send({ error: 'malformatted id' })
+  }
+
+  next(error)
 }
 
-app.get('/', (req, res) => {
-  res.send('<h1>Hello Worldsss!</h1>')
+app.get('/', (request, response) => {
+  response.send('<h1>Hello Worldsss!</h1>')
 })
 
-app.get('/api/notes', (req, res) => {
+app.get('/api/notes', (request, response) => {
   Note.find({}).then(notes => {
-    res.json(notes)
+    response.json(notes)
   })
 })
 
-app.post('/api/notes', (req, res) => {
-  const body = req.body
+app.post('/api/notes', (request, response) => {
+  const body = request.body
 
   const note = new Note({
     title: body.title,
@@ -34,27 +40,36 @@ app.post('/api/notes', (req, res) => {
   })
 
   note.save().then(savedNote => {
-    res.json(savedNote)
+    response.json(savedNote)
   })
 })
 
-app.get('/api/notes/:id', (req, res) => {
-  const id = req.params.id
-
-  Note.findById(id).then(note => {
-    res.json(note)
-  })
-})
-
-app.delete('/api/notes/:id', (req, res) => {
-  const id = req.params.id
-
-  Note.findByIdAndRemove(id)
+app.get('/api/notes/:id', (request, response, next) => {
+  Note.findById(request.params.id)
     .then(note => {
-      res.json(note)
+      if(note) {
+        response.json(note)
+      } else {
+        response.status(404).end()
+      }
     })
     .catch(error => next(error))
 })
+
+app.delete('/api/notes/:id', (request, response) => {
+  Note.findByIdAndRemove(request.params.id)
+    .then(note => {
+      response.status(204).end()
+    })
+    .catch(error => next(error))
+})
+
+const unknownEndpoint = (request, response) => {
+  response.status(404).send({ error: 'unknown endpoint' })
+}
+
+app.use(unknownEndpoint)
+app.use(errorHandler)
 
 const PORT = process.env.PORT
 app.listen(PORT, () => {
