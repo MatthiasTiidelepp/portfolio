@@ -3,7 +3,11 @@ const app = express()
 const cors = require('cors')
 require('dotenv').config()
 const Note = require('./models/note')
+const cities = require('./services/cities')
+const getWeather = require('./services/weather')
 const morgan = require('morgan')
+
+const axios = require('axios')
 
 app.use(cors())
 app.use(express.json())
@@ -22,9 +26,10 @@ const errorHandler = (error, request, response, next) => {
 }
 
 app.get('/', (request, response) => {
-  response.send('<h1>Hello Worldsss!</h1>')
+  response.send('<h1>Hello Worlds!</h1>')
 })
 
+// Routes for notes component
 app.get('/api/notes', (request, response) => {
   Note.find({}).then(notes => {
     response.json(notes)
@@ -63,6 +68,24 @@ app.delete('/api/notes/:id', (request, response) => {
     })
     .catch(error => next(error))
 })
+
+// Routes for weather component (European capital cities and weather for those cities)
+app.get('/api/cities', (request, response) => {
+  if (cities.length > 0) {
+    response.json(cities)
+  } else {
+    response.status(404).send({ error: 'received no data from cities module' })
+  }
+})
+
+// app.get('/api/weather', (request, response) => {
+//   // console.log(request.query)
+//   const lat = request.query.lat
+//   const lng = request.query.lng
+//   console.log(getWeather(lat, lng))
+//   response.send('<h1>Whats</h1>')
+//   // response.json(getWeather(lat, lng))
+// })
 
 const unknownEndpoint = (request, response) => {
   response.status(404).send({ error: 'unknown endpoint' })

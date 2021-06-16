@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import noteService from '../../services/notes'
+import noteService from '../../services/notes/notes'
 import Note from './Note';
 import NoteForm from './NoteForm';
 

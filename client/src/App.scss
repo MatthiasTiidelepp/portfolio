@@ -46,6 +46,7 @@ body {
   }
 }
 
+// Home component
 .homeContainer {
   margin: 5rem 2rem;
 
@@ -66,6 +67,69 @@ body {
   }
 }
 
+// Weather component
+.weatherContainer {
+  margin: 4rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  
+  background: hsl(0, 0%, 55%);
+
+  .dropdownContainer {
+    background: hsl(0, 0%, 50%);
+
+    .citiesDropdown {
+      margin: 1rem;
+      padding: 0.1rem;
+    
+      background: hsl(0, 0%, 55%);
+      color: hsl(0, 0%, 85%);
+      border-radius: 0.2rem;
+    
+      font: 1.8em 'Roboto';
+    }
+  }
+
+  .weatherTable {
+    border-collapse: collapse;
+    width: 100%;
+    justify-content: space-between;
+
+    tr:nth-child(even) {
+      background: hsl(0, 0%, 50%);
+    }
+
+    .weatherText {
+      font: 1.7em 'Roboto';
+      text-transform: capitalize;
+    }
+
+    #day {
+      padding-left: 1.2rem;
+      width: 12rem;
+      color: hsl(0, 0%, 85%);
+    }
+    
+    #temperature {
+      padding-left: 4rem;
+      color: hsl(0, 0%, 100%);
+    }
+    
+    #description {
+      color: hsl(0, 0%, 100%);
+    }
+
+    .weatherImage {
+      margin: 0.4rem;
+      align-self: center;
+    
+      border-radius: 0.2rem;
+      background: hsl(0, 0%, 70%);
+    }
+  }
+}
+
+// Tic Tac Toe component
 .tictactoeContainer {
   display: grid;
   grid-template-rows: 0.2fr 1fr;
@@ -181,11 +245,9 @@ body {
       }
     }
   }
-
-
 }
 
-/* Notes */
+// Notes component
 .notesContainer {
   margin: 5rem 2rem;
 
@@ -338,7 +400,7 @@ body {
 }
 
 
-/* Footer */
+// Footer component
 .footerContainer {
   padding-top: 0.4rem;
   padding-left: 1rem;
