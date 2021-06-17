@@ -34,19 +34,20 @@ function Weather() {
   // Getting an object with info of weather conditions in the selected city.
   // This will run and get new conditions every time the state for the currently selected city updates.
   useEffect(() => {
-    // weatherService
-    //   .getAll(city.coordinates[0], city.coordinates[1])
-    //   .then(receivedWeather => {
-    //     setWeather(receivedWeather)
-    //   })
+    weatherService
+      .getAll(city.coordinates[0], city.coordinates[1])
+      .then(receivedWeather => {
+        console.log('passed in from weather main', receivedWeather)
+        setWeather(receivedWeather)
+      })
 
-    const fetchData = async () => {
-      const API_KEY = await process.env.REACT_APP_API_KEY
-      const result = await axios(`https://api.openweathermap.org/data/2.5/onecall?lat=${city.coordinates[0]}&lon=${city.coordinates[1]}&units=metric&exclude=minutely,hourly,alerts&appid=dbbed851ca778f15c2d8d6feaf9641f5`)
-      setWeather(result.data)
-    }
+    // const fetchData = async () => {
+    //   const API_KEY = await process.env.REACT_APP_API_KEY
+    //   const result = await axios(`https://api.openweathermap.org/data/2.5/onecall?lat=${city.coordinates[0]}&lon=${city.coordinates[1]}&units=metric&exclude=minutely,hourly,alerts&appid=dbbed851ca778f15c2d8d6feaf9641f5`)
+    //   setWeather(result.data)
+    // }
 
-    fetchData()
+    // fetchData()
   }, [ city ])
 
   // Event handler for setting the current city to the one chosen from dropdown
