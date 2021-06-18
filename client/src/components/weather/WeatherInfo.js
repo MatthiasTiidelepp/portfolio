@@ -1,9 +1,21 @@
 import React from 'react'
 
 // Component for displaying the days of the week and the corresponding weather conditions (temperature, weather description and an icon representing the conditions) as a table
-const WeatherInfo = ({ weather, week, day }) => {
+const WeatherInfo = ({ weather }) => {
 
-  // Function that generates and returns rows and cells for the weathertable
+  // An array of weekdays and the current date to generate weekday names for the forecast
+  const week = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday'
+  ]
+  const day = new Date().getDay()
+
+  // Function that generates rows and cells for the weathertable
   const createTableChildren = () => {
     // Initialize an emtpy array that will be returned at the end of the function
     let children = []

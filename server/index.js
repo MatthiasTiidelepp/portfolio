@@ -25,10 +25,6 @@ const errorHandler = (error, request, response, next) => {
   next(error)
 }
 
-app.get('/', (request, response) => {
-  response.send('<h1>Hello Worlds!</h1>')
-})
-
 // Routes for notes component
 app.get('/api/notes', (request, response) => {
   Note.find({}).then(notes => {
@@ -71,34 +67,33 @@ app.delete('/api/notes/:id', (request, response) => {
 
 // Routes for weather component (European capital cities and weather for those cities)
 app.get('/api/cities', (request, response) => {
-  let cities = []
-
+  // Calling imported cities function
   getCities()
     .then(result => {
-      cities = result.data.map(country => {
+      // Mapping cities capitals and coordinates to an array and responding with that to the request
+      response.json(result.data.map(country => {
         return (
           {
           'capital': country.capital,
           'coordinates': country.latlng
           }
         )
-
-      })
-      response.json(cities)
+      }))
     })
 })
 
 app.get('/api/weather', (request, response) => {
-  if (request.query.lat) {
+  // If coordinates 
+  if (request.query.lat !== undefined && request.query.lng !== undefined) {
     const lat = request.query.lat
     const lng = request.query.lng
-    
+
     getWeather(lat, lng)
       .then(result => {
         response.json(result.data)
       })
   } else {
-    response.status(404).send()
+    response.status(404).send({ error: 'no coordinates passed in' })
   }
 })
 

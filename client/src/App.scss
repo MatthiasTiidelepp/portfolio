@@ -34,15 +34,28 @@ body {
 }
 
 .navBar {
-  padding: 1rem;
-  background: $dark-gray;
+  border-bottom: 1.5px solid $dark-gray;
+  padding: 0.5rem;
+  padding-left: 0rem;
 
   .navItem {
     padding: 1rem;
-    color: $white;
+    padding-left: 0.5rem;
+    color: $dark-blue;
     font-family: 'Roboto';
-    font-size: 1.2em;
+    font-size: 1.3em;
+    font-weight: bold;
+    letter-spacing: 0.1em;
     text-decoration: none;
+  }
+
+  .navItem:hover {
+    padding-bottom: 0rem;
+    color: $moss-green;
+  }
+
+  .navItem:active {
+    color: $white;
   }
 }
 
@@ -69,62 +82,71 @@ body {
 
 // Weather component
 .weatherContainer {
-  margin: 4rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  
-  background: hsl(0, 0%, 55%);
+  display: flex;
+  justify-content: center;
 
-  .dropdownContainer {
-    background: hsl(0, 0%, 50%);
-
-    .citiesDropdown {
-      margin: 1rem;
-      padding: 0.1rem;
-    
-      background: hsl(0, 0%, 55%);
-      color: hsl(0, 0%, 85%);
-      border-radius: 0.2rem;
-    
-      font: 1.8em 'Roboto';
-    }
+  .weatherLoader {
+    size: 80px;
   }
 
-  .weatherTable {
-    border-collapse: collapse;
-    width: 100%;
-    justify-content: space-between;
+  .weatherTableContainer {
+    margin: 4rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    
+    background: hsl(0, 0%, 55%);
 
-    tr:nth-child(even) {
+    .dropdownContainer {
       background: hsl(0, 0%, 50%);
+
+      .citiesDropdown {
+        margin: 1rem;
+        padding: 0.1rem;
+      
+        background: hsl(0, 0%, 55%);
+        color: hsl(0, 0%, 85%);
+        border-radius: 0.2rem;
+      
+        font: 1.8em 'Roboto';
+      }
     }
 
-    .weatherText {
-      font: 1.7em 'Roboto';
-      text-transform: capitalize;
-    }
+    .weatherTable {
+      border-collapse: collapse;
+      width: 100%;
+      justify-content: space-between;
 
-    #day {
-      padding-left: 1.2rem;
-      width: 12rem;
-      color: hsl(0, 0%, 85%);
-    }
-    
-    #temperature {
-      padding-left: 4rem;
-      color: hsl(0, 0%, 100%);
-    }
-    
-    #description {
-      color: hsl(0, 0%, 100%);
-    }
+      tr:nth-child(even) {
+        background: hsl(0, 0%, 50%);
+      }
 
-    .weatherImage {
-      margin: 0.4rem;
-      align-self: center;
-    
-      border-radius: 0.2rem;
-      background: hsl(0, 0%, 70%);
+      .weatherText {
+        font: 1.7em 'Roboto';
+        text-transform: capitalize;
+      }
+
+      #day {
+        padding-left: 1.2rem;
+        width: 12rem;
+        color: hsl(0, 0%, 85%);
+      }
+      
+      #temperature {
+        padding-left: 4rem;
+        color: hsl(0, 0%, 100%);
+      }
+      
+      #description {
+        color: hsl(0, 0%, 100%);
+      }
+
+      .weatherImage {
+        margin: 0.4rem;
+        align-self: center;
+      
+        border-radius: 0.2rem;
+        background: hsl(0, 0%, 70%);
+      }
     }
   }
 }
@@ -405,8 +427,7 @@ body {
   padding-top: 0.4rem;
   padding-left: 1rem;
   padding-bottom: 0.6rem;
-  background: $dark-gray;
-  color: $white;
+  color: $dark-gray;
   font-family: 'Poppins', sans-serif;
   font-size: 0.75em;
 }
