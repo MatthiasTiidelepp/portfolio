@@ -7,8 +7,6 @@ const getCities = require('./services/cities')
 const getWeather = require('./services/weather')
 const morgan = require('morgan')
 
-const axios = require('axios')
-
 app.use(cors())
 app.use(express.json())
 
@@ -83,7 +81,7 @@ app.get('/api/cities', (request, response) => {
 })
 
 app.get('/api/weather', (request, response) => {
-  // If coordinates 
+  // If coordinates are passed in, use imported weather function to get weatherdata based on coordinates
   if (request.query.lat !== undefined && request.query.lng !== undefined) {
     const lat = request.query.lat
     const lng = request.query.lng

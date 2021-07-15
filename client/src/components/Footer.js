@@ -4,8 +4,9 @@ import React from 'react'
 const Footer = () => {
   return (
     <footer className="footerContainer">
-      <p>by Matthias Tiidelepp</p>
-      <p>2021</p>
+      <p className="footerText">by Matthias Tiidelepp</p>
+      <p className="footerInterpunct">·</p>
+      <p className="footerText">2021</p>
     </footer>
   )
 }

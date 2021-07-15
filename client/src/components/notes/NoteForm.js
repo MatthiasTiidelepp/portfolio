@@ -4,7 +4,7 @@ const NoteForm = ({ handleFormSubmit, newTitle, handleTitleChange, newBody, hand
   return (
     <form className="notesForm" onSubmit={handleFormSubmit}>
       <div className="titleContainer">
-        <label className="titleLabel">Title:</label>
+        <label className="titleLabel">Title</label>
         <input
           className="titleInput"
           type="text"
@@ -15,7 +15,7 @@ const NoteForm = ({ handleFormSubmit, newTitle, handleTitleChange, newBody, hand
         />
       </div>
       <div className="bodyContainer">
-        <label className="bodyLabel">Content:</label>
+        <label className="bodyLabel">Content</label>
         <textarea
           className="bodyInput"
           name="body"

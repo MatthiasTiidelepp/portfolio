@@ -170,6 +170,7 @@ function TicTacToe() {
         <GameInfo
           handleRestart={handleRestart}
           current={current}
+          finished={finished}
         />
   
         <Grid

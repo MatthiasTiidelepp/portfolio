@@ -1,11 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-$light-gray: #e0e0e0;
-$dark-gray: #7a7a7a;
-$moss-green: #91924f;
-$dark-blue: #011d28;
-$white: #ffffff;
+// pallette 1
+// $darkest: #011D28;
+// $dark: #7A7A7A;
+// $medium: #91924F;
+// $light: #E0E0E0;
+// $lightest: #FFFFFF;
+
+// pallette 2
+$darkest: #354A1C;
+$dark: #846D70;
+$medium: #467B9A;
+$light: #E3DDDE;
+$lightest: #FFFFFF;
 
 #root {
   font-size: 16px;
@@ -14,7 +22,7 @@ $white: #ffffff;
 html {
   height: 100vh;
   position: relative;
-  background: $light-gray no-repeat center center fixed;
+  background: $light no-repeat center center fixed;
 }
 
 body {
@@ -34,28 +42,28 @@ body {
 }
 
 .navBar {
-  border-bottom: 1.5px solid $dark-gray;
-  padding: 0.5rem;
+  border-bottom: 2px solid $dark;
+  padding: 0.5rem 1rem;
   padding-left: 0rem;
 
   .navItem {
     padding: 1rem;
-    padding-left: 0.5rem;
-    color: $dark-blue;
+    color: $dark;
     font-family: 'Roboto';
     font-size: 1.3em;
     font-weight: bold;
     letter-spacing: 0.1em;
     text-decoration: none;
+    border-right: 2px solid $dark;
   }
 
   .navItem:hover {
     padding-bottom: 0rem;
-    color: $moss-green;
+    color: $medium;
   }
 
   .navItem:active {
-    color: $white;
+    color: $lightest;
   }
 }
 
@@ -64,7 +72,7 @@ body {
   margin: 5rem 2rem;
 
   .introductionTitle {
-    color: $moss-green;
+    color: $medium;
     font-family: 'Roboto';
     font-weight: lighter;
     font-size: 3.125em;
@@ -72,7 +80,7 @@ body {
   }
 
   .introductionBody {
-    color: $dark-blue;
+    color: $darkest;
     font-family: 'Poppins';
     font-size: 1em;
     line-height: 1.5em;
@@ -85,26 +93,32 @@ body {
   display: flex;
   justify-content: center;
 
+  margin: 0.5rem;
+
+  border: 0px solid $medium;
+  border-radius: 0.2rem;
+
   .weatherLoader {
     size: 80px;
   }
 
   .weatherTableContainer {
-    margin: 4rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin: 0.5rem;
+
+    width: 100vw;
     
-    background: hsl(0, 0%, 55%);
+    background: $lightest;
 
     .dropdownContainer {
-      background: hsl(0, 0%, 50%);
+      background: $light;
 
       .citiesDropdown {
-        margin: 1rem;
+        margin: 0.3rem 0rem;
         padding: 0.1rem;
       
-        background: hsl(0, 0%, 55%);
-        color: hsl(0, 0%, 85%);
+        background: $medium;
+        color: $lightest;
+        border: 0px solid $dark;
         border-radius: 0.2rem;
       
         font: 1.8em 'Roboto';
@@ -116,8 +130,10 @@ body {
       width: 100%;
       justify-content: space-between;
 
-      tr:nth-child(even) {
-        background: hsl(0, 0%, 50%);
+      background: $light;
+
+      tr:nth-child(odd) {
+        background: $lightest;
       }
 
       .weatherText {
@@ -127,17 +143,19 @@ body {
 
       #day {
         padding-left: 1.2rem;
-        width: 12rem;
-        color: hsl(0, 0%, 85%);
+        padding-right: 1.2rem;
+
+        width: 10rem;
+        color: $medium;
       }
       
       #temperature {
         padding-left: 4rem;
-        color: hsl(0, 0%, 100%);
+        color: $medium;
       }
       
       #description {
-        color: hsl(0, 0%, 100%);
+        color: $medium;
       }
 
       .weatherImage {
@@ -145,7 +163,7 @@ body {
         align-self: center;
       
         border-radius: 0.2rem;
-        background: hsl(0, 0%, 70%);
+        background: $medium;
       }
     }
   }
@@ -173,9 +191,9 @@ body {
       width: 6rem;
       height: 6rem;
       padding: 1rem;
-      background:  $dark-gray;
+      background:  $dark;
     
-      color: $white;
+      color: $lightest;
       font-family: 'Roboto', sans-serif;
       letter-spacing: 0.2rem;
       font-size: 4rem;
@@ -183,11 +201,11 @@ body {
     }
     
     .restartBtn:hover {
-      background: $moss-green;
+      background: $medium;
     }
     
     .restartBtn:active {
-      background: $dark-gray;
+      background: $dark;
     }
     
     .current {
@@ -199,11 +217,11 @@ body {
       height: 6rem;
     
       text-align: center;
-      vertical-align: middle;
+      vertical-align: medium;
       line-height: 5.2rem;
       
       text-align: center;
-      color: $moss-green;
+      color: $medium;
       font-family: 'Roboto', sans-serif;
       font-size: 6rem;
       font-weight: bold;
@@ -221,14 +239,14 @@ body {
       width: fit-content;
       height: fit-content;
     
-      border: 0.4rem solid $moss-green;
+      border: 0.4rem solid $medium;
       border-radius: 0.2rem;
     
       display: grid;
       grid-template: repeat(3, 1fr) / repeat(3, 1fr);
       grid-gap: 0.3rem;
       padding: 0.2rem;
-      background: #91924F;
+      background: $medium;
   
       .gridBtn {
         display: flex;
@@ -238,22 +256,22 @@ body {
         width: 12rem;
         height: 12rem;
       
-        border: 0rem solid $dark-blue;
+        border: 0rem solid $darkest;
         border-radius: 0.1rem;
         
         padding-top: 1.5rem;
-        background: $white;
-        color: #91924F;
+        background: $lightest;
+        color: $medium;
       
         font-size: 9rem;
       }
       
       .gridBtn:hover {
-        background: $light-gray;
+        background: $light;
       }
       
       .gridBtn:active {
-        background: $white;
+        background: $lightest;
       }
     }
 
@@ -261,7 +279,7 @@ body {
     .gameConclusionContainer {
   
       .gameConclusionText {
-        color: $moss-green;
+        color: $medium;
         font-family: 'Poppins';
         font-size: 6em;
       }
@@ -274,97 +292,94 @@ body {
   margin: 5rem 2rem;
 
   .notesForm {
-    width: 40rem;
+    width: 30rem;
 
-    border: 0px solid $dark-gray;
+    border: 0px solid $dark;
     border-radius: 0.1rem;
-    padding: 1rem;
+
+    font-family: 'Roboto';
+    font-size: 1.3em;
 
     .titleContainer {
-      margin: 1rem;
+      margin-bottom: 1rem;
 
       display: grid;
-      grid-template-columns: 0.2fr 1fr;
+      grid-template-rows: 0.2fr 1fr;
 
       .titleLabel {
+        margin-bottom: 0.2rem;
 
-        font-family: Roboto;
-        font-size: 1.3em;
       }
 
       .titleInput {
-        width: 20rem;
+        width: 100%;
         box-sizing: border-box;
 
-        border: 1px solid $dark-gray;
+        border: 2px solid $dark;
 
         font: 1em 'Poppins';
       }
 
       .titleInput:focus {
         outline: none;
-        border: 2px solid $moss-green;
+        border: 2px solid $medium;
       }
     }
     
     .bodyContainer {
-      margin: 1rem;
+      margin-bottom: 1rem;
 
       display: grid;
-      grid-template-columns: 0.2fr 1fr;
+      grid-template-rows: 0.2fr 1fr;
 
       .bodyLabel {
-        font-family: Roboto;
-        font-size: 1.3em;
+        margin-bottom: 0.2rem;
       }
 
       .bodyInput {
-        width: 20rem;
+        width: 100%;
         height: 8rem;
         box-sizing: border-box;
 
-        border: 1px solid $dark-gray;
+        border: 2px solid $dark;
 
         font: 1em 'Poppins';
       }
 
       .bodyInput:focus {
         outline: none;
-        border: 2px solid $moss-green;
+        border: 2px solid $medium;
       }
     }
 
     .buttonContainer {
-      display: flex;
-
       .submitButton {
-        margin: auto;
-        
+        width: 100%;
+
         border: 0rem;
         border-radius: 0.2rem;
       
-        padding: 0.6rem;
-        background:  $dark-gray;
+        padding: 0.2rem;
+        background:  $dark;
       
-        color: $white;
+        color: $lightest;
         font-family: 'Roboto';
-        letter-spacing: 0.2rem;
-        font-size: 1.2em;
-        font-weight: bold;
+        letter-spacing: 0.1rem;
+        font-size: 1.1em;
       }
       
       .submitButton:hover {
-        background: $moss-green;
+        background: $medium;
       }
       
       .submitButton:active {
-        background: $dark-gray;
+        background: $dark;
       }
     }
   }
 
   .notelistContainer {
-    border: 0px solid $dark-gray;
+    border: 0px solid $dark;
     padding-left: 0.2rem;
 
     list-style-type: none;
@@ -382,18 +397,20 @@ body {
           font-family: Roboto;
           font-weight: bold;
           font-size: 1.5em;
+          color: $darkest;
         }
   
         .noteBody {
           margin: 1rem;
   
           font: 1em 'Poppins';
+          color: $medium;
         }
       }
 
       .noteDeleteButton {
-        justify-self: start;
-        align-self: center;
+        margin-left: 8rem;
+        align-self: end;
 
         width: fit-content;
         height: fit-content;
@@ -401,21 +418,21 @@ body {
         border: 0rem;
         border-radius: 0.2rem;
       
-        padding: 0.6rem;
-        background:  $dark-gray;
+        padding: 0.4rem;
+        background:  $dark;
       
-        color: $white;
+        color: $lightest;
         font-family: 'Roboto';
-        letter-spacing: 0.2rem;
-        font-size: 1.2em;
+        letter-spacing: 0.1rem;
+        font-size: 1.1em;
       }
       
       .noteDeleteButton:hover {
-        background: $moss-green;
+        background: $medium;
       }
       
       .noteDeleteButton:active {
-        background: $dark-gray;
+        background: $dark;
       }
     }
   }
@@ -424,10 +441,21 @@ body {
 
 // Footer component
 .footerContainer {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
   padding-top: 0.4rem;
   padding-left: 1rem;
   padding-bottom: 0.6rem;
-  color: $dark-gray;
+  color: $dark;
   font-family: 'Poppins', sans-serif;
-  font-size: 0.75em;
+  font-size: 0.80em;
+
+  .footerText {
+    margin-left: 1rem;
+  }
+
+  .footerInterpunct {
+    margin-left: 1rem;
+  }
 }
