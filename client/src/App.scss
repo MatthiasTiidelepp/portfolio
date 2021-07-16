@@ -22,7 +22,7 @@ $lightest: #FFFFFF;
 html {
   height: 100vh;
   position: relative;
-  background: $light no-repeat center center fixed;
+  background: $lightest no-repeat center center fixed;
 }
 
 body {
@@ -36,39 +36,58 @@ body {
   left: 0;
   right: 0;
 
-  display: flex;
-  flex-flow: column;
-  justify-content: space-between;
+  display: grid;
+  grid-template-rows: 0.1fr 1fr 0.1fr;
 }
 
 .navBar {
-  border-bottom: 2px solid $dark;
-  padding: 0.5rem 1rem;
-  padding-left: 0rem;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
 
-  .navItem {
-    padding: 1rem;
-    color: $dark;
-    font-family: 'Roboto';
-    font-size: 1.3em;
-    font-weight: bold;
-    letter-spacing: 0.1em;
-    text-decoration: none;
-    border-right: 2px solid $dark;
-  }
+  background: $medium;
 
-  .navItem:hover {
-    padding-bottom: 0rem;
-    color: $medium;
-  }
 
-  .navItem:active {
-    color: $lightest;
-  }
+
+    .pageTitle {
+      margin: 0.5rem 0.5rem;
+      justify-self: center;
+      
+
+      color: $light;
+      font-family: 'Roboto';
+      font-size: 2em;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+
+    }
+
+    .navItemContainer {
+      place-self: center;
+
+      .navItem {
+        padding: 1rem 1rem;
+        color: $lightest;
+        font-family: 'Roboto';
+        font-size: 1.3em;
+        letter-spacing: 0.1em;
+        text-decoration: none;
+        border: 0px solid $dark;
+      }
+  
+      .navItem:hover {
+        color: $light;
+      }
+  
+      .navItem:active {
+        color: $lightest;
+      }
+    }
 }
 
 // Home component
 .homeContainer {
+  align-self: start;
+
   margin: 5rem 2rem;
 
   .introductionTitle {
@@ -93,7 +112,8 @@ body {
   display: flex;
   justify-content: center;
 
-  margin: 0.5rem;
+  height: fit-content;
+
 
   border: 0px solid $medium;
   border-radius: 0.2rem;
@@ -103,25 +123,31 @@ body {
   }
 
   .weatherTableContainer {
-    margin: 0.5rem;
 
     width: 100vw;
     
-    background: $lightest;
+    background: $light;
 
     .dropdownContainer {
-      background: $light;
+      display: flex;
+      justify-content: center;
+      background: $lightest;
 
       .citiesDropdown {
-        margin: 0.3rem 0rem;
-        padding: 0.1rem;
+        margin: 1rem 1.5rem;
+        width: 100%;
+        padding: 0.2rem 0.5rem;
       
         background: $medium;
         color: $lightest;
         border: 0px solid $dark;
-        border-radius: 0.2rem;
+        border-radius: 2px;
       
         font: 1.8em 'Roboto';
+
+      
+        // letter-spacing: 0.1em;
+        // font-size: 1.1em;
       }
     }
 
@@ -130,10 +156,10 @@ body {
       width: 100%;
       justify-content: space-between;
 
-      background: $light;
+      background: $lightest;
 
       tr:nth-child(odd) {
-        background: $lightest;
+        background: $light;
       }
 
       .weatherText {
@@ -171,6 +197,8 @@ body {
 
 // Tic Tac Toe component
 .tictactoeContainer {
+  align-self: start;
+
   display: grid;
   grid-template-rows: 0.2fr 1fr;
   
@@ -289,6 +317,8 @@ body {
 
 // Notes component
 .notesContainer {
+  align-self: start;
+
   margin: 5rem 2rem;
 
   .notesForm {
@@ -357,14 +387,14 @@ body {
         width: 100%;
 
         border: 0rem;
-        border-radius: 0.2rem;
+        border-radius: 2px;
       
         padding: 0.2rem;
         background:  $dark;
       
         color: $lightest;
         font-family: 'Roboto';
-        letter-spacing: 0.1rem;
+        letter-spacing: 0.1em;
         font-size: 1.1em;
       }
       
@@ -428,7 +458,7 @@ body {
       }
       
       .noteDeleteButton:hover {
-        background: $medium;
+        background: $darkest;
       }
       
       .noteDeleteButton:active {
@@ -441,6 +471,8 @@ body {
 
 // Footer component
 .footerContainer {
+  align-self: end;
+
   display: flex;
   flex-flow: row;
   justify-content: flex-start;

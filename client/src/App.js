@@ -17,10 +17,15 @@ const App = () => {
     <div className="pageContainer">
       <Router>
         <div className="navBar">
-          <Link className="navItem" to="/">HOME</Link>
-          <Link className="navItem" to="/weather">WEATHER</Link>
-          <Link className="navItem" to="/tictactoe">TIC TAC TOE</Link>
-          <Link className="navItem" to="/notes">NOTES</Link>
+
+          <p className="pageTitle">Matthias Tiidelepp</p>
+          
+          <div className="navItemContainer">
+            <Link className="navItem" to="/">HOME</Link>
+            <Link className="navItem" to="/weather">WEATHER</Link>
+            <Link className="navItem" to="/tictactoe">TIC TAC TOE</Link>
+            <Link className="navItem" to="/notes">NOTES</Link>
+          </div>
         </div>
   
         <Switch>
