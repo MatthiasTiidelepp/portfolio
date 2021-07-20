@@ -44,7 +44,7 @@ const Weather = () => {
   }
 
   return (
-    <div className="weatherContainer">
+    <div className="weather">
       {!cities || !weather ?
         <Loader
           className="weatherLoader"

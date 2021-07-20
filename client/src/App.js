@@ -14,13 +14,20 @@ import Footer from './components/Footer'
 
 const App = () => {
   return (
-    <div className="pageContainer">
+    <div className="page">
       <Router>
         <div className="navBar">
 
-          <p className="pageTitle">Matthias Tiidelepp</p>
+          <a className="pageTitle" href="/">Matthias Tiidelepp</a>
           
-          <div className="navItemContainer">
+          {/* <ul className="navItems">
+            <li className="navItem">HOME</li>
+            <li className="navItem">WEATHER</li>
+            <li className="navItem">TICTACTOE</li>
+            <li className="navItem">NOTES</li>
+          </ul> */}
+
+          <div className="navItems">
             <Link className="navItem" to="/">HOME</Link>
             <Link className="navItem" to="/weather">WEATHER</Link>
             <Link className="navItem" to="/tictactoe">TIC TAC TOE</Link>

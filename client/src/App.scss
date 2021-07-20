@@ -1,153 +1,243 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 
 // pallette 1
-// $darkest: #011D28;
+// $dark: #011D28;
 // $dark: #7A7A7A;
-// $medium: #91924F;
+// $accent: #91924F;
 // $light: #E0E0E0;
-// $lightest: #FFFFFF;
+// $light: #FFFFFF;
 
 // pallette 2
-$darkest: #354A1C;
-$dark: #846D70;
-$medium: #467B9A;
-$light: #E3DDDE;
-$lightest: #FFFFFF;
+// $dark: #354A1C;
+// $dark: #846D70;
+// $accent: #467B9A;
+// $light: #E3DDDE;
+// $light: #FFFFFF;
 
-#root {
-  font-size: 16px;
-}
+// pallette 3
+// $dark: #0B0A09;
+// $accent: #32C35B;
+// $accent2: #9EDBAE;
+// $light: #EEE5E9;
+
+// pallette 4
+// $dark: #2E1F27;
+// $accent: #44beff;
+// $accent2: #70A054;
+// $light: #D7F9F1;
+
+// pallette 5
+// $dark: #2E1F27;
+// $middle: #363537;
+// $accent: #2E1F27;
+// $accent2: #70A054;
+// $light: #D7F9F1;
+
+// pallette 6
+$dark: #2E1F27;
+$accent: #70A054;
+$accent2: #0085CC;
+$middle: #666468;
+$middle2: #98AEAA;
+$light: #CAF7EC;
+
+$br: 5px;
 
 html {
   height: 100vh;
   position: relative;
-  background: $lightest no-repeat center center fixed;
+  background: $light no-repeat center center fixed;
 }
 
 body {
-  height: 100vh;
+  font: 16px 'B612 Mono', sans-serif;
 }
 
-.pageContainer {
+.page {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
 
-  display: grid;
-  grid-template-rows: 0.1fr 1fr 0.1fr;
+  display: flex;
+  flex-direction: column;
 }
 
 .navBar {
-  display: grid;
-  grid-template-columns: 0.5fr 1fr 0.5fr;
-
-  background: $medium;
-
-
+  display: flex;
+  width: 90%;
+  height: 10vh;
+  margin: 0rem auto;
+  align-items: center;
 
     .pageTitle {
-      margin: 0.5rem 0.5rem;
-      justify-self: center;
-      
+      flex: 1;
 
-      color: $light;
-      font-family: 'Roboto';
-      font-size: 2em;
+      color: $accent2;
+      font-size: 1.5em;
       font-weight: 600;
-      letter-spacing: 0.2em;
-
+      letter-spacing: 0.04em;
+      text-decoration: none;
     }
 
-    .navItemContainer {
-      place-self: center;
+    .navItems {
+      flex: 1;
+      justify-content: flex-end;
+
+      display: flex;
 
       .navItem {
-        padding: 1rem 1rem;
-        color: $lightest;
-        font-family: 'Roboto';
-        font-size: 1.3em;
-        letter-spacing: 0.1em;
+        justify-content: space-around;
+
+        padding: 0rem 0.6rem;
+        color: $middle;
+        font-size: 1em;
+        font-weight: 600;
         text-decoration: none;
-        border: 0px solid $dark;
       }
   
       .navItem:hover {
-        color: $light;
+        color: $dark;
+        font-weight: bold;
       }
   
       .navItem:active {
-        color: $lightest;
+        font-size: 1.2em;
       }
     }
 }
 
 // Home component
-.homeContainer {
-  align-self: start;
+.home {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 85vh;
+  margin: auto;
 
-  margin: 5rem 2rem;
+  padding: 5rem 0rem 5rem 0rem;
 
-  .introductionTitle {
-    color: $medium;
-    font-family: 'Roboto';
-    font-weight: lighter;
-    font-size: 3.125em;
-    letter-spacing: 0.01em;
+  .introduction {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    .introductionTitle {
+      align-self: flex-start;
+
+      background: linear-gradient(to right, $dark, $accent2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      font-size: 2.75em;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .introductionBody {
+      margin-top: 2rem;
+
+      color: $middle;
+      font-size: 1.5em;
+      line-height: 1.5em;
+      letter-spacing: 0.01em;
+    }
   }
+  
 
-  .introductionBody {
-    color: $darkest;
-    font-family: 'Poppins';
-    font-size: 1em;
-    line-height: 1.5em;
-    letter-spacing: 0.01em;
+  .projects {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    // background: $middle2;
+    // border: 1px solid $dark;
+    border-radius: $br;
+
+    .projectsTitle {
+      flex: 1;
+      align-self: center;
+      color: $dark;
+      font-size: 2.5em;
+      letter-spacing: 0.01em;
+    }
+      
+    .projectLinks {
+      flex: 1;
+
+      margin-top: 2rem;
+
+      display: flex;
+      justify-content: space-around;
+
+      .projectLink {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 13rem;
+        height: 4.5rem;
+
+        color: $light;
+        font-size: 1.5em;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        text-decoration: none;
+        background: $accent2;
+        border-radius: $br;
+      }
+
+      .projectLink:hover {
+        color: $middle2;
+      }
+
+      .projectLink:active {
+        font-size: 1.4em;
+      }
+    }
   }
 }
 
 // Weather component
-.weatherContainer {
+.weather {
   display: flex;
-  justify-content: center;
+  align-content: flex-start;
+  width: 90%;
+  height: 85vh;
+  margin: 5rem auto;
 
-  height: fit-content;
-
-
-  border: 0px solid $medium;
-  border-radius: 0.2rem;
+  // border: 2px solid $accent2;
+  border-radius: $br;
 
   .weatherLoader {
+    margin: 5rem 2rem;
     size: 80px;
   }
 
   .weatherTableContainer {
-
-    width: 100vw;
-    
-    background: $light;
+    width: 100%;
 
     .dropdownContainer {
       display: flex;
-      justify-content: center;
-      background: $lightest;
 
       .citiesDropdown {
-        margin: 1rem 1.5rem;
-        width: 100%;
+        width: 95%;
+        margin: 2rem auto;
+        margin-left: 1rem;
         padding: 0.2rem 0.5rem;
       
-        background: $medium;
-        color: $lightest;
         border: 0px solid $dark;
-        border-radius: 2px;
-      
-        font: 1.8em 'Roboto';
-
-      
-        // letter-spacing: 0.1em;
-        // font-size: 1.1em;
+        border-radius: $br;
+        
+        cursor: pointer;
+        
+        color: $light;
+        font-size: 1.8em;
+        letter-spacing: 0.02em;
+        background: $accent2;
       }
     }
 
@@ -156,14 +246,12 @@ body {
       width: 100%;
       justify-content: space-between;
 
-      background: $lightest;
-
       tr:nth-child(odd) {
-        background: $light;
+        background: $middle2;
       }
 
       .weatherText {
-        font: 1.7em 'Roboto';
+        font-size: 1.7em;
         text-transform: capitalize;
       }
 
@@ -172,16 +260,16 @@ body {
         padding-right: 1.2rem;
 
         width: 10rem;
-        color: $medium;
+        color: $middle;
       }
       
       #temperature {
         padding-left: 4rem;
-        color: $medium;
+        color: $dark;
       }
       
       #description {
-        color: $medium;
+        color: $dark;
       }
 
       .weatherImage {
@@ -189,7 +277,7 @@ body {
         align-self: center;
       
         border-radius: 0.2rem;
-        background: $medium;
+        background: $middle;
       }
     }
   }
@@ -219,21 +307,23 @@ body {
       width: 6rem;
       height: 6rem;
       padding: 1rem;
-      background:  $dark;
+      background:  $accent;
     
-      color: $lightest;
+      color: $light;
       font-family: 'Roboto', sans-serif;
       letter-spacing: 0.2rem;
-      font-size: 4rem;
+      font-size: 4em;
       font-weight: bold;
     }
     
     .restartBtn:hover {
-      background: $medium;
+      background: $accent2;
     }
     
     .restartBtn:active {
-      background: $dark;
+      width: 5.5rem;
+      height: 5.5rem;
+      font-size: 3.5em;
     }
     
     .current {
@@ -245,11 +335,10 @@ body {
       height: 6rem;
     
       text-align: center;
-      vertical-align: medium;
       line-height: 5.2rem;
       
       text-align: center;
-      color: $medium;
+      color: $accent;
       font-family: 'Roboto', sans-serif;
       font-size: 6rem;
       font-weight: bold;
@@ -267,14 +356,14 @@ body {
       width: fit-content;
       height: fit-content;
     
-      border: 0.4rem solid $medium;
+      border: 0.4rem solid $accent;
       border-radius: 0.2rem;
     
       display: grid;
       grid-template: repeat(3, 1fr) / repeat(3, 1fr);
       grid-gap: 0.3rem;
       padding: 0.2rem;
-      background: $medium;
+      background: $accent;
   
       .gridBtn {
         display: flex;
@@ -284,22 +373,22 @@ body {
         width: 12rem;
         height: 12rem;
       
-        border: 0rem solid $darkest;
+        border: 0rem solid $dark;
         border-radius: 0.1rem;
         
         padding-top: 1.5rem;
-        background: $lightest;
-        color: $medium;
+        background: $light;
+        color: $accent;
       
         font-size: 9rem;
       }
       
       .gridBtn:hover {
-        background: $light;
+        background: $accent2;
       }
       
       .gridBtn:active {
-        background: $lightest;
+        background: $light;
       }
     }
 
@@ -307,7 +396,7 @@ body {
     .gameConclusionContainer {
   
       .gameConclusionText {
-        color: $medium;
+        color: $accent;
         font-family: 'Poppins';
         font-size: 6em;
       }
@@ -324,10 +413,9 @@ body {
   .notesForm {
     width: 30rem;
 
-    border: 0px solid $dark;
+    border: 0px solid $accent2;
     border-radius: 0.1rem;
 
-    font-family: 'Roboto';
     font-size: 1.3em;
 
     .titleContainer {
@@ -345,14 +433,14 @@ body {
         width: 100%;
         box-sizing: border-box;
 
-        border: 2px solid $dark;
+        border: 2px solid $accent;
 
         font: 1em 'Poppins';
       }
 
       .titleInput:focus {
         outline: none;
-        border: 2px solid $medium;
+        border: 2px solid $accent2;
       }
     }
     
@@ -371,14 +459,14 @@ body {
         height: 8rem;
         box-sizing: border-box;
 
-        border: 2px solid $dark;
+        border: 2px solid $accent;
 
         font: 1em 'Poppins';
       }
 
       .bodyInput:focus {
         outline: none;
-        border: 2px solid $medium;
+        border: 2px solid $accent2;
       }
     }
 
@@ -390,20 +478,19 @@ body {
         border-radius: 2px;
       
         padding: 0.2rem;
-        background:  $dark;
+        background: $accent;
       
-        color: $lightest;
-        font-family: 'Roboto';
+        color: $light;
         letter-spacing: 0.1em;
         font-size: 1.1em;
       }
       
       .submitButton:hover {
-        background: $medium;
+        background: $accent2;
       }
       
       .submitButton:active {
-        background: $dark;
+        font-size: 1em;
       }
     }
   }
@@ -427,42 +514,42 @@ body {
           font-family: Roboto;
           font-weight: bold;
           font-size: 1.5em;
-          color: $darkest;
+          color: $accent;
         }
   
         .noteBody {
           margin: 1rem;
   
           font: 1em 'Poppins';
-          color: $medium;
+          color: $dark;
         }
       }
 
       .noteDeleteButton {
         margin-left: 8rem;
-        align-self: end;
+        align-self: center;
+        justify-self: end;
 
         width: fit-content;
         height: fit-content;
 
-        border: 0rem;
+        border: 0px;
         border-radius: 0.2rem;
       
         padding: 0.4rem;
-        background:  $dark;
+        background:  $accent;
       
-        color: $lightest;
-        font-family: 'Roboto';
-        letter-spacing: 0.1rem;
-        font-size: 1.1em;
+        color: $dark;
+        font-weight: 600;
+        font-size: 1em;
       }
       
       .noteDeleteButton:hover {
-        background: $darkest;
+        background: $accent2;
       }
       
       .noteDeleteButton:active {
-        background: $dark;
+        font-size: 0.9em;
       }
     }
   }
@@ -471,23 +558,15 @@ body {
 
 // Footer component
 .footerContainer {
-  align-self: end;
-
   display: flex;
-  flex-flow: row;
-  justify-content: flex-start;
-  padding-top: 0.4rem;
-  padding-left: 1rem;
-  padding-bottom: 0.6rem;
-  color: $dark;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.80em;
+  width: 90%;
+  height: 5vh;
+  margin: 0rem auto;
+  align-items: center;
 
-  .footerText {
-    margin-left: 1rem;
-  }
-
-  .footerInterpunct {
-    margin-left: 1rem;
+  .footerText, .footerInterpunct {
+    font-size: 0.80em;
+    padding: 0.2rem;
+    color: $dark;
   }
 }
