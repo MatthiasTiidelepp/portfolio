@@ -6,7 +6,9 @@ const Footer = () => {
     <footer className="footerContainer">
       <p className="footerText">by Matthias Tiidelepp</p>
       <p className="footerInterpunct">·</p>
-      <p className="footerText">2021</p>
+      <a className="footerLink" href="https://github.com/MatthiasTiidelepp">GitHub</a>
+      <p className="footerInterpunct">·</p>
+      <a className="footerLink" href="https://www.linkedin.com/in/matthias-tiidelepp-a51792208/">Linkedin</a>
     </footer>
   )
 }

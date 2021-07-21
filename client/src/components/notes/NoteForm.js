@@ -3,7 +3,7 @@ import React from 'react'
 const NoteForm = ({ handleFormSubmit, newTitle, handleTitleChange, newBody, handleBodyChange }) => {
   return (
     <form className="notesForm" onSubmit={handleFormSubmit}>
-      <div className="titleContainer">
+      <div className="title">
         <label className="titleLabel">Title</label>
         <input
           className="titleInput"
@@ -14,7 +14,7 @@ const NoteForm = ({ handleFormSubmit, newTitle, handleTitleChange, newBody, hand
           required
         />
       </div>
-      <div className="bodyContainer">
+      <div className="body">
         <label className="bodyLabel">Content</label>
         <textarea
           className="bodyInput"

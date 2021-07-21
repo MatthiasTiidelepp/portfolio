@@ -5,8 +5,8 @@ import { MdRefresh } from 'react-icons/md';
 
 function GameInfo({ handleRestart, current, finished }) {
   return (
-    <div className="infoContainer">
-      <button className="restartBtn" onClick={handleRestart}><MdRefresh /></button>
+    <div className="gameInfo">
+      <button className="restartButton" onClick={handleRestart}><MdRefresh className="restartIcon" /></button>
       {finished ?
         null
         : <p className="current">

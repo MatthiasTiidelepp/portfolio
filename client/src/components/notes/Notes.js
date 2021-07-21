@@ -51,7 +51,7 @@ const Notes = () => {
   }
 
   return (
-    <div className="notesContainer">
+    <div className="notes">
       
       {!notes ?
         null :
@@ -64,7 +64,7 @@ const Notes = () => {
         />
       }
 
-      <ul className="notelistContainer">
+      <ul className="noteList">
         {!notes ?
           null :
           notes.map(n => 

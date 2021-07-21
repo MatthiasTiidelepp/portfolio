@@ -37,13 +37,14 @@
 
 // pallette 6
 $dark: #2E1F27;
-$accent: #70A054;
-$accent2: #0085CC;
+$accent: #00b7ff;
+$accent2: #00679e;
 $middle: #666468;
 $middle2: #98AEAA;
+$middle3: #b2cec8;
 $light: #CAF7EC;
 
-$br: 5px;
+$br: 2px;
 
 html {
   height: 100vh;
@@ -105,7 +106,7 @@ body {
       }
   
       .navItem:active {
-        font-size: 1.2em;
+        font-size: 0.95em;
       }
     }
 }
@@ -128,10 +129,11 @@ body {
     .introductionTitle {
       align-self: flex-start;
 
-      background: linear-gradient(to right, $dark, $accent2);
+      background: linear-gradient(to right, $dark, $middle);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
 
+      color: $dark;
       font-size: 2.75em;
       font-weight: 600;
       letter-spacing: 0.01em;
@@ -157,21 +159,22 @@ body {
     // border: 1px solid $dark;
     border-radius: $br;
 
-    .projectsTitle {
-      flex: 1;
-      align-self: center;
-      color: $dark;
-      font-size: 2.5em;
-      letter-spacing: 0.01em;
-    }
+    // .projectsTitle {
+    //   flex: 1;
+    //   align-self: center;
+    //   color: $dark;
+    //   font-size: 2.5em;
+    //   letter-spacing: 0.01em;
+    // }
       
     .projectLinks {
-      flex: 1;
-
-      margin-top: 2rem;
-
       display: flex;
       justify-content: space-around;
+
+      // padding: 2rem;
+      // box-shadow: 0rem 0rem 2rem $middle3;
+      border-radius: $br;
+
 
       .projectLink {
         display: flex;
@@ -181,21 +184,24 @@ body {
         width: 13rem;
         height: 4.5rem;
 
-        color: $light;
+        color: $dark;
         font-size: 1.5em;
         font-weight: 600;
         letter-spacing: 0.01em;
         text-decoration: none;
-        background: $accent2;
+        box-shadow: inset 0rem 0rem 0.5rem 0rem $accent;
+        transition: ease-out 0.35s;
         border-radius: $br;
       }
 
       .projectLink:hover {
-        color: $middle2;
+        box-shadow: inset 13rem 0rem 0rem 0rem $accent;
+        color: $light;
       }
 
       .projectLink:active {
         font-size: 1.4em;
+        transition: none;
       }
     }
   }
@@ -209,35 +215,42 @@ body {
   height: 85vh;
   margin: 5rem auto;
 
-  // border: 2px solid $accent2;
   border-radius: $br;
 
   .weatherLoader {
-    margin: 5rem 2rem;
+    margin: 10rem auto;
     size: 80px;
   }
 
   .weatherTableContainer {
     width: 100%;
+    height: fit-content;
+    box-shadow: 0rem 0rem 0.6rem 0rem $middle3;
+    padding: 3rem;
 
     .dropdownContainer {
       display: flex;
 
       .citiesDropdown {
-        width: 95%;
-        margin: 2rem auto;
-        margin-left: 1rem;
-        padding: 0.2rem 0.5rem;
+        width: 100%;
+        margin-bottom: 2rem;
+        padding: 0.8rem 0.5rem;
       
-        border: 0px solid $dark;
-        border-radius: $br;
-        
         cursor: pointer;
         
-        color: $light;
-        font-size: 1.8em;
-        letter-spacing: 0.02em;
-        background: $accent2;
+        color: $dark;
+        font-size: 1.5em;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        text-decoration: none;
+        background: $light;
+        box-shadow: inset 0rem 0rem 0.6rem 0rem $middle2;
+        border: none;
+        border-radius: $br;
+      }
+
+      .citiesDropdown:focus {
+        outline: none;
       }
     }
 
@@ -247,7 +260,7 @@ body {
       justify-content: space-between;
 
       tr:nth-child(odd) {
-        background: $middle2;
+        background: linear-gradient(to left, $middle3, $light);
       }
 
       .weatherText {
@@ -260,7 +273,7 @@ body {
         padding-right: 1.2rem;
 
         width: 10rem;
-        color: $middle;
+        color: $dark;
       }
       
       #temperature {
@@ -277,95 +290,94 @@ body {
         align-self: center;
       
         border-radius: 0.2rem;
-        background: $middle;
+        background: $middle2;
       }
     }
   }
 }
 
 // Tic Tac Toe component
-.tictactoeContainer {
-  align-self: start;
-
-  display: grid;
-  grid-template-rows: 0.2fr 1fr;
+.tictactoe {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  height: 85vh;
+  margin: auto;
   
   /* Game info */
-  .infoContainer {
+  .gameInfo {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
   
     margin: 1rem;
 
-    .restartBtn {
+    .restartButton {
       margin: 0.5rem;
       
-      border: 0rem;
-      border-radius: 0.2rem;
-    
-      width: 6rem;
-      height: 6rem;
-      padding: 1rem;
-      background:  $accent;
-    
-      color: $light;
-      font-family: 'Roboto', sans-serif;
-      letter-spacing: 0.2rem;
-      font-size: 4em;
-      font-weight: bold;
+      width: 4rem;
+      height: 4rem;
+      
+      box-shadow: inset 0rem 0rem 0.5rem 0rem $middle;
+      transition: ease-out 0.7s;
+      border: none;
+      border-radius: $br;
+      background:  $light;
+      
+      .restartIcon {
+        font-size: 4em;
+        color: $dark;
+      }
     }
     
-    .restartBtn:hover {
-      background: $accent2;
+    .restartButton:hover {
+      box-shadow: inset 13rem 0rem 0rem 0rem $accent;
+      
+      .restartIcon {
+        color: $light;
+      }
     }
     
-    .restartBtn:active {
-      width: 5.5rem;
-      height: 5.5rem;
-      font-size: 3.5em;
+    .restartButton:active {
+      width: 3.7rem;
+      height: 3.7rem;
+      
+      .restartIcon {
+        font-size: 3.7em;
+      }
     }
     
     .current {
       margin: 0.5rem;
     
-      border-radius: 0.2rem;
-    
       width: 6rem;
       height: 6rem;
     
-      text-align: center;
-      line-height: 5.2rem;
-      
-      text-align: center;
-      color: $accent;
-      font-family: 'Roboto', sans-serif;
-      font-size: 6rem;
-      font-weight: bold;
+      color: $dark;
+      font-size: 6em;
     }
   }
   
   /* Game grid */
-  .gridContainer {
-    justify-self: center;
-
-    .cellContainer {
+  .gameGrid {
+    .cells {
       margin: 0.5rem;
       margin-bottom: 3rem;
     
       width: fit-content;
       height: fit-content;
     
-      border: 0.4rem solid $accent;
-      border-radius: 0.2rem;
+      box-shadow: 0rem 0rem 0.6rem 0rem $middle2;
+      border-radius: $br;
     
       display: grid;
       grid-template: repeat(3, 1fr) / repeat(3, 1fr);
       grid-gap: 0.3rem;
       padding: 0.2rem;
-      background: $accent;
+      background: $middle2;
   
-      .gridBtn {
+      .gridButton {
         display: flex;
         justify-content: center;
         align-content: center;
@@ -379,25 +391,27 @@ body {
         padding-top: 1.5rem;
         background: $light;
         color: $accent;
-      
-        font-size: 9rem;
+        font-size: 9em;
+
+        transition: ease-out 0.2s;
       }
       
-      .gridBtn:hover {
-        background: $accent2;
+      .gridButton:hover {
+        background: $middle3;
       }
       
-      .gridBtn:active {
-        background: $light;
+      .gridButton:active {
+        background: $middle2;
       }
     }
 
     // Game conclusion screen
-    .gameConclusionContainer {
-  
+    .gameConclusion {
+      box-shadow: 0rem 0rem 0.6rem 0rem $middle3;
+      padding: 1rem 6rem;
+
       .gameConclusionText {
-        color: $accent;
-        font-family: 'Poppins';
+        color: $middle;
         font-size: 6em;
       }
     }
@@ -405,12 +419,15 @@ body {
 }
 
 // Notes component
-.notesContainer {
-  align-self: start;
-
-  margin: 5rem 2rem;
+.notes {
+  display: flex;
+  flex-direction: column;
+  height: 85vh;
+  width: 90vw;
+  margin: auto;
 
   .notesForm {
+    margin-top: 2rem;
     width: 30rem;
 
     border: 0px solid $accent2;
@@ -418,7 +435,7 @@ body {
 
     font-size: 1.3em;
 
-    .titleContainer {
+    .title {
       margin-bottom: 1rem;
 
       display: grid;
@@ -433,19 +450,19 @@ body {
         width: 100%;
         box-sizing: border-box;
 
-        border: 2px solid $accent;
+        border: 2px solid $middle2;
 
-        font: 1em 'Poppins';
+        font-size: 1em;
       }
 
       .titleInput:focus {
         outline: none;
-        border: 2px solid $accent2;
+        border: 2px solid $accent;
       }
     }
     
-    .bodyContainer {
-      margin-bottom: 1rem;
+    .body {
+      margin-bottom: 2rem;
 
       display: grid;
       grid-template-rows: 0.2fr 1fr;
@@ -459,97 +476,93 @@ body {
         height: 8rem;
         box-sizing: border-box;
 
-        border: 2px solid $accent;
+        border: 2px solid $middle2;
 
-        font: 1em 'Poppins';
+        font-size: 1em;
       }
 
       .bodyInput:focus {
         outline: none;
-        border: 2px solid $accent2;
+        border: 2px solid $accent;
       }
     }
 
-    .buttonContainer {
-      .submitButton {
-        width: 100%;
+    .submitButton {
+      width: 100%;
 
-        border: 0rem;
-        border-radius: 2px;
-      
-        padding: 0.2rem;
-        background: $accent;
-      
-        color: $light;
-        letter-spacing: 0.1em;
-        font-size: 1.1em;
-      }
-      
-      .submitButton:hover {
-        background: $accent2;
-      }
-      
-      .submitButton:active {
-        font-size: 1em;
-      }
+      color: $dark;
+      font-size: 1.2em;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      box-shadow: inset 0rem 0rem 0.5rem 0rem $middle;
+      transition: ease-out 0.7s;
+      border: none;
+      border-radius: $br;
+      padding: 1rem 0rem;
+    }
+    
+    .submitButton:hover {
+      box-shadow: inset 30rem 0rem 0rem 0rem $accent;
+      color: $light;
+    }
+    
+    .submitButton:active {
+      font-size: 1.1em;
+      transition: ease-out 0.1s;
     }
   }
 
-  .notelistContainer {
+  .noteList {
     border: 0px solid $dark;
+    padding-top: 2rem;
     padding-left: 0.2rem;
 
     list-style-type: none;
 
     .noteContainer {
-      display: grid;
-      grid-template-columns: 0.5fr 1fr;
+      display: flex;
+      justify-content: space-between;
 
-      margin: 1rem;
-
-      .noteTextContainer {
+      .noteText {
         .noteTitle {
           margin: 1rem;
   
-          font-family: Roboto;
           font-weight: bold;
           font-size: 1.5em;
-          color: $accent;
+          color: $middle;
         }
   
         .noteBody {
           margin: 1rem;
-  
-          font: 1em 'Poppins';
-          color: $dark;
+
+          font-size: 1em;
+          color: $middle2;
         }
       }
 
       .noteDeleteButton {
-        margin-left: 8rem;
-        align-self: center;
-        justify-self: end;
-
         width: fit-content;
         height: fit-content;
 
-        border: 0px;
-        border-radius: 0.2rem;
-      
-        padding: 0.4rem;
-        background:  $accent;
-      
         color: $dark;
-        font-weight: 600;
         font-size: 1em;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        box-shadow: inset 0rem 0rem 0.5rem 0rem $middle2;
+        transition: ease-out 0.2s;
+        border: none;
+        border-radius: $br;
+        padding: 0.5rem 1rem;
       }
       
       .noteDeleteButton:hover {
-        background: $accent2;
+        box-shadow: inset 5rem 0rem 0rem 0rem $middle2;
+        color: $light;
       }
-      
-      .noteDeleteButton:active {
-        font-size: 0.9em;
+    
+      .submitButton:active {
+        font-size: 0.8em;
+        transition: ease-out 0.1s;
       }
     }
   }
@@ -564,9 +577,18 @@ body {
   margin: 0rem auto;
   align-items: center;
 
-  .footerText, .footerInterpunct {
+  .footerText, .footerInterpunct, .footerLink {
     font-size: 0.80em;
     padding: 0.2rem;
     color: $dark;
+  }
+
+  .footerLink {
+    color: $accent2;
+    text-decoration: none;
+  }
+
+  .footerLink:hover {
+    color: $accent;
   }
 }

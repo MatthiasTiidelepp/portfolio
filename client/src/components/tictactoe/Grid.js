@@ -3,14 +3,14 @@ import GridButton from './GridButton'
 
 const TicTacToe = ({ finished, conclusion, handleButton, cells }) => {
   return (
-    <div className="gridContainer">
+    <div className="gameGrid">
       {finished ?
         
-        <div className="gameConclusionContainer">
+        <div className="gameConclusion">
           <p className="gameConclusionText">{conclusion}</p>
         </div> :
 
-        <div className="cellContainer">
+        <div className="cells">
           <GridButton id="1" handleButton={handleButton} cell={cells[0]['1']} />
           <GridButton id="2" handleButton={handleButton} cell={cells[0]['2']} />
           <GridButton id="3" handleButton={handleButton} cell={cells[0]['3']} />

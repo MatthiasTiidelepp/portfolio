@@ -166,7 +166,7 @@ function TicTacToe() {
   }
 
   return (
-      <div className="tictactoeContainer">
+      <div className="tictactoe">
         <GameInfo
           handleRestart={handleRestart}
           current={current}
