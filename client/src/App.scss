@@ -1,41 +1,4 @@
-// @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
-
-// pallette 1
-// $dark: #011D28;
-// $dark: #7A7A7A;
-// $accent: #91924F;
-// $light: #E0E0E0;
-// $light: #FFFFFF;
-
-// pallette 2
-// $dark: #354A1C;
-// $dark: #846D70;
-// $accent: #467B9A;
-// $light: #E3DDDE;
-// $light: #FFFFFF;
-
-// pallette 3
-// $dark: #0B0A09;
-// $accent: #32C35B;
-// $accent2: #9EDBAE;
-// $light: #EEE5E9;
-
-// pallette 4
-// $dark: #2E1F27;
-// $accent: #44beff;
-// $accent2: #70A054;
-// $light: #D7F9F1;
-
-// pallette 5
-// $dark: #2E1F27;
-// $middle: #363537;
-// $accent: #2E1F27;
-// $accent2: #70A054;
-// $light: #D7F9F1;
-
-// pallette 6
+// pallette
 $dark: #2E1F27;
 $accent: #00b7ff;
 $accent2: #00679e;
@@ -48,8 +11,9 @@ $br: 2px;
 
 html {
   height: 100vh;
+  width: 100vw;
   position: relative;
-  background: $light no-repeat center center fixed;
+  background: $light;
 }
 
 body {
@@ -77,11 +41,16 @@ body {
     .pageTitle {
       flex: 1;
 
-      color: $accent2;
+      color: $middle;
       font-size: 1.5em;
       font-weight: 600;
       letter-spacing: 0.04em;
       text-decoration: none;
+
+      box-shadow: inset 0rem 0rem 1rem 0rem $middle3;
+      padding: 1rem;
+      border: 4px solid $middle3;
+      border-radius: $br;
     }
 
     .navItems {
@@ -95,9 +64,10 @@ body {
 
         padding: 0rem 0.6rem;
         color: $middle;
-        font-size: 1em;
+        font-size: 1.2em;
         font-weight: 600;
         text-decoration: none;
+        transition: ease-out 0.05s;
       }
   
       .navItem:hover {
@@ -106,22 +76,22 @@ body {
       }
   
       .navItem:active {
-        font-size: 0.95em;
+        font-size: 1.1em;
       }
     }
 }
 
 // Home component
-.home {
+.about {
   display: flex;
   flex-direction: column;
   width: 90%;
   height: 85vh;
   margin: auto;
 
-  padding: 5rem 0rem 5rem 0rem;
-
+  
   .introduction {
+    padding: 5rem 0rem 5rem 0rem;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -129,7 +99,7 @@ body {
     .introductionTitle {
       align-self: flex-start;
 
-      background: linear-gradient(to right, $dark, $middle);
+      background: linear-gradient(to right, $dark, $middle2);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
 
@@ -154,27 +124,11 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-
-    // background: $middle2;
-    // border: 1px solid $dark;
     border-radius: $br;
-
-    // .projectsTitle {
-    //   flex: 1;
-    //   align-self: center;
-    //   color: $dark;
-    //   font-size: 2.5em;
-    //   letter-spacing: 0.01em;
-    // }
       
     .projectLinks {
       display: flex;
       justify-content: space-around;
-
-      // padding: 2rem;
-      // box-shadow: 0rem 0rem 2rem $middle3;
-      border-radius: $br;
-
 
       .projectLink {
         display: flex;
@@ -198,10 +152,10 @@ body {
         box-shadow: inset 13rem 0rem 0rem 0rem $accent;
         color: $light;
       }
-
+      
       .projectLink:active {
+        transition: ease-out 0.05s;
         font-size: 1.4em;
-        transition: none;
       }
     }
   }
@@ -213,7 +167,7 @@ body {
   align-content: flex-start;
   width: 90%;
   height: 85vh;
-  margin: 5rem auto;
+  margin: auto;
 
   border-radius: $br;
 
@@ -223,6 +177,8 @@ body {
   }
 
   .weatherTableContainer {
+    margin: 5rem 0rem 5rem 0rem;
+    
     width: 100%;
     height: fit-content;
     box-shadow: 0rem 0rem 0.6rem 0rem $middle3;
@@ -311,7 +267,7 @@ body {
     justify-content: center;
     align-items: center;
   
-    margin: 1rem;
+    padding: 5rem 0rem 5rem 0rem;
 
     .restartButton {
       margin: 0.5rem;
@@ -427,19 +383,16 @@ body {
   margin: auto;
 
   .notesForm {
-    margin-top: 2rem;
+    padding: 5rem 0rem 5rem 0rem;
     width: 30rem;
-
-    border: 0px solid $accent2;
-    border-radius: 0.1rem;
 
     font-size: 1.3em;
 
     .title {
       margin-bottom: 1rem;
 
-      display: grid;
-      grid-template-rows: 0.2fr 1fr;
+      display: flex;
+      flex-direction: column;
 
       .titleLabel {
         margin-bottom: 0.2rem;
@@ -464,8 +417,8 @@ body {
     .body {
       margin-bottom: 2rem;
 
-      display: grid;
-      grid-template-rows: 0.2fr 1fr;
+      display: flex;
+      flex-direction: column;
 
       .bodyLabel {
         margin-bottom: 0.2rem;
@@ -495,10 +448,10 @@ body {
       font-weight: 600;
       letter-spacing: 0.01em;
       box-shadow: inset 0rem 0rem 0.5rem 0rem $middle;
-      transition: ease-out 0.7s;
+      transition: ease-out 0.4s;
       border: none;
       border-radius: $br;
-      padding: 1rem 0rem;
+      padding: 0.6rem 0rem;
     }
     
     .submitButton:hover {
@@ -571,10 +524,14 @@ body {
 
 // Footer component
 .footerContainer {
+  position: fixed;
+  bottom: 0;
+  background: $middle3;
+
   display: flex;
-  width: 90%;
+  width: 100%;
   height: 5vh;
-  margin: 0rem auto;
+  padding-left: 5rem;
   align-items: center;
 
   .footerText, .footerInterpunct, .footerLink {

@@ -19,7 +19,10 @@ const Weather = () => {
     cityService
       .getAll()
       .then(receivedCities => {
-        setCities(receivedCities)
+        // Sort the cities alphabetically before setting as state
+        setCities(
+          receivedCities.sort((a, b) => a.capital.localeCompare(b.capital))
+        )
       })
   }, [])
 

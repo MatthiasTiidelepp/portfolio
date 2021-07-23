@@ -45,7 +45,7 @@ const Notes = () => {
     noteService
       .remove(id)
       .then(() => {
-        window.alert(`Deleted "${notes.find(note => note.id === id).title}"`)
+        // window.alert(`Deleted "${notes.find(note => note.id === id).title}"`)
         setNotes(notes.filter(note => note.id !== id))
       })
   }
