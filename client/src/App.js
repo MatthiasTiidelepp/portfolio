@@ -16,30 +16,31 @@ import Footer from './components/Footer'
 const App = () => {
   return (
     <div className="page">
-      <Router>
-        <div className="navBar">
-
-          <div className="pageTitleContainer">
-            <a className="pageTitle" href="/">MATTHIAS TIIDELEPP</a>
-          </div>
-
-          <div className="navItems">
-            <Link className="navItem" to="/">ABOUT</Link>
-            <Link className="navItem" to="/weather">WEATHER</Link>
-            <Link className="navItem" to="/tictactoe">TIC TAC TOE</Link>
-            <Link className="navItem" to="/notes">NOTES</Link>
-          </div>
-        </div>
+      <div className="content">
+        <Router>
+          <div className="navBar">
+            <div className="pageTitleContainer">
+              <a className="pageTitle" href="/">MATTHIAS TIIDELEPP</a>
+            </div>
   
-        <Switch>
-          <Route path="/weather" component={Weather} />
-          <Route path="/tictactoe" component={TicTacToe} />
-          <Route path="/notes" component={Notes} />
-          <Route path="/" component={About} />
-        </Switch>
-      </Router>
-  
-      <Footer />
+            <div className="navItems">
+              <Link className="navItem" to="/">ABOUT</Link>
+              <Link className="navItem" to="/weather">WEATHER</Link>
+              <Link className="navItem" to="/tictactoe">TIC TAC TOE</Link>
+              <Link className="navItem" to="/notes">NOTES</Link>
+            </div>
+          </div>
+    
+          <Switch>
+            <Route path="/weather" component={Weather} />
+            <Route path="/tictactoe" component={TicTacToe} />
+            <Route path="/notes" component={Notes} />
+            <Route path="/" component={About} />
+          </Switch>
+        </Router>
+      </div>
+
+      {/* <Footer /> */}
     </div>
   )
 }

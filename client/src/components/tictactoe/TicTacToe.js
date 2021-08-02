@@ -146,13 +146,13 @@ function TicTacToe() {
     ) {
       if (current === 'x') {
         setFinished(true)
-        setConclusion('X wins')
+        setConclusion('X wins!')
         // window.alert('x wins!')
         // handleRestart()
 
       } else {
         setFinished(true)
-        setConclusion('o wins!')
+        setConclusion('O wins!')
         // window.alert('o wins!')
         // handleRestart()
       }

@@ -7,12 +7,19 @@ $middle2: #98AEAA;
 $middle3: #b2cec8;
 $light: #CAF7EC;
 
+// default border radius
 $br: 2px;
 
+* {
+  margin: 0;
+}
+
 html {
+  position: relative;
+
   height: 100vh;
   width: 100vw;
-  position: relative;
+
   background: $light;
 }
 
@@ -21,531 +28,792 @@ body {
 }
 
 .page {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  min-height: 100vh;
 
   display: flex;
   flex-direction: column;
-}
 
-.navBar {
-  display: flex;
-  width: 90%;
-  height: 10vh;
-  margin: 0rem auto;
-  align-items: center;
+  .content {
+    .navBar {
+      margin: 0rem auto;
 
-    .pageTitle {
-      flex: 1;
-
-      color: $middle;
-      font-size: 1.5em;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-decoration: none;
-
-      box-shadow: inset 0rem 0rem 1rem 0rem $middle3;
-      padding: 1rem;
-      border: 4px solid $middle3;
-      border-radius: $br;
-    }
-
-    .navItems {
-      flex: 1;
-      justify-content: flex-end;
-
-      display: flex;
-
-      .navItem {
-        justify-content: space-around;
-
-        padding: 0rem 0.6rem;
-        color: $middle;
-        font-size: 1.2em;
-        font-weight: 600;
-        text-decoration: none;
-        transition: ease-out 0.05s;
-      }
-  
-      .navItem:hover {
-        color: $dark;
-        font-weight: bold;
-      }
-  
-      .navItem:active {
-        font-size: 1.1em;
-      }
-    }
-}
-
-// Home component
-.about {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  height: 85vh;
-  margin: auto;
-
-  
-  .introduction {
-    padding: 5rem 0rem 5rem 0rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-
-    .introductionTitle {
-      align-self: flex-start;
-
-      background: linear-gradient(to right, $dark, $middle2);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-
-      color: $dark;
-      font-size: 2.75em;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-    }
-
-    .introductionBody {
-      margin-top: 2rem;
-
-      color: $middle;
-      font-size: 1.5em;
-      line-height: 1.5em;
-      letter-spacing: 0.01em;
-    }
-  }
-  
-
-  .projects {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    border-radius: $br;
+      height: 10vh;
+      width: 90%;
       
-    .projectLinks {
       display: flex;
-      justify-content: space-around;
+      align-items: center;
 
-      .projectLink {
+        .pageTitle {
+          flex: 1;
+
+          padding: 1rem;
+
+          border: 4px solid $middle3;
+          border-radius: $br;
+          box-shadow: inset 0rem 0rem 1rem 0rem $middle3;
+
+          color: $middle;
+          font-size: 1.5em;
+          font-weight: 600;
+          letter-spacing: 0.04em;
+          text-decoration: none;
+        }
+
+        .navItems {
+          flex: 1;
+          
+          display: flex;
+          justify-content: flex-end;
+
+          .navItem {
+            padding: 0rem 0.6rem;
+
+            color: $middle;
+            font-size: 1.2em;
+            font-weight: 600;
+            text-decoration: none;
+
+            transition: ease-out 0.05s;
+          }
+      
+          .navItem:hover {
+            color: $dark;
+            font-weight: bold;
+          }
+      
+          .navItem:active {
+            font-size: 1.1em;
+          }
+        }
+    }
+
+    // About component
+    .about {
+      margin: auto;
+
+      height: 85vh;
+      width: 90%;
+
+      display: flex;
+      flex-direction: column;
+
+      .introduction {
+        flex: 1;
+
+        padding: 5rem 0rem 5rem 0rem;
+        
         display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .introductionTitle {
+          color: $dark;
+          font-size: 2.75em;
+          font-weight: 600;
+          letter-spacing: 0.01em;
+
+          background: linear-gradient(to right, $dark, $middle2);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        .introductionBody {
+          margin-top: 2rem;
+
+          color: $dark;
+          font-size: 1.5em;
+          letter-spacing: 0.01em;
+          line-height: 1.5em;
+
+          .introductionLink {
+            color: $accent;
+            text-decoration: none;
+          }
+
+          .introductionLink:hover {
+            color: $middle3;
+          }
+
+          .introductionLink:active {
+            color: $accent;
+          }
+        }
+      }
+
+      .projects {
+        flex: 1;
+
+        display: flex;
+        flex-direction: column;
+
+        .projectLinks {
+          display: flex;
+          justify-content: space-around;
+
+          .projectLink {
+            height: 4.5rem;
+            width: 13rem;
+            
+            border-radius: $br;
+            box-shadow: inset 0rem 0rem 0.5rem 0rem $accent;
+
+            color: $dark;
+            font-size: 1.5em;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            text-decoration: none;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            transition: ease-out 0.35s;
+          }
+
+          .projectLink:hover {
+            box-shadow: inset 13rem 0rem 0rem 0rem $accent;
+
+            color: $light;
+          }
+          
+          .projectLink:active {
+            font-size: 1.4em;
+
+            transition: ease-out 0.05s;
+          }
+        }
+      }
+    }
+
+    // Weather component
+    .weather {
+      margin: auto;
+
+      height: 85vh;
+      width: 90%;
+
+      display: flex;
+      align-content: flex-start;
+
+      .weatherLoader {
+        margin: 10rem auto;
+
+        size: 80px;
+      }
+
+      .weatherTableContainer {
+        margin: 5rem 0rem 5rem 0rem;
+        
+        height: fit-content;
+        width: 100%;
+
+        padding: 3rem;
+
+        box-shadow: 0rem 0rem 0.6rem 0rem $middle3;
+
+        .dropdownContainer {
+          display: flex;
+
+          .citiesDropdown {
+            margin-bottom: 2rem;
+
+            width: 100%;
+
+            padding: 0.8rem 0.5rem;
+          
+            cursor: pointer;
+            
+            border: none;
+            border-radius: $br;
+            box-shadow: inset 0rem 0rem 0.6rem 0rem $middle2;
+
+            color: $dark;
+            font-size: 1.5em;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            text-decoration: none;
+
+            background: $light;
+          }
+
+          .citiesDropdown:focus {
+            outline: none;
+          }
+        }
+
+        .weatherTable {
+          width: 100%;
+
+          border-collapse: collapse;
+
+          tr:nth-child(odd) {
+            background: linear-gradient(to left, $middle3, $light);
+          }
+
+          .weatherText {
+            font-size: 1.7em;
+            text-transform: capitalize;
+          }
+
+          #day {
+            width: 10rem;
+
+            padding-left: 1.2rem;
+            padding-right: 1.2rem;
+
+            color: $dark;
+          }
+          
+          #temperature {
+            padding-left: 4rem;
+
+            color: $dark;
+          }
+          
+          #description {
+            color: $dark;
+          }
+
+          .weatherImage {
+            margin: 0.4rem;
+
+            align-self: center;
+          
+            border-radius: $br;
+
+            background: $middle2;
+          }
+        }
+      }
+    }
+
+    // Tic Tac Toe component
+    .tictactoe {
+      margin: auto;
+
+      height: 85vh;
+      
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .gameInfo {
+        padding: 5rem 0rem 0rem 0rem;
+
+        display: flex;
+        flex-direction: row;
         justify-content: center;
         align-items: center;
 
-        width: 13rem;
-        height: 4.5rem;
-
-        color: $dark;
-        font-size: 1.5em;
-        font-weight: 600;
-        letter-spacing: 0.01em;
-        text-decoration: none;
-        box-shadow: inset 0rem 0rem 0.5rem 0rem $accent;
-        transition: ease-out 0.35s;
-        border-radius: $br;
-      }
-
-      .projectLink:hover {
-        box-shadow: inset 13rem 0rem 0rem 0rem $accent;
-        color: $light;
-      }
-      
-      .projectLink:active {
-        transition: ease-out 0.05s;
-        font-size: 1.4em;
-      }
-    }
-  }
-}
-
-// Weather component
-.weather {
-  display: flex;
-  align-content: flex-start;
-  width: 90%;
-  height: 85vh;
-  margin: auto;
-
-  border-radius: $br;
-
-  .weatherLoader {
-    margin: 10rem auto;
-    size: 80px;
-  }
-
-  .weatherTableContainer {
-    margin: 5rem 0rem 5rem 0rem;
-    
-    width: 100%;
-    height: fit-content;
-    box-shadow: 0rem 0rem 0.6rem 0rem $middle3;
-    padding: 3rem;
-
-    .dropdownContainer {
-      display: flex;
-
-      .citiesDropdown {
-        width: 100%;
-        margin-bottom: 2rem;
-        padding: 0.8rem 0.5rem;
-      
-        cursor: pointer;
+        .restartButton {
+          margin: 0.5rem;
+          
+          height: 4.5rem;
+          width: 4.5rem;
+          
+          border: none;
+          border-radius: $br;
+          box-shadow: inset 0rem 0rem 0.5rem 0rem $middle;
+          
+          background:  $light;
+          
+          transition: ease-out 0.7s;
+          
+          .restartIcon {
+            color: $dark;
+            font-size: 4em;
+          }
+        }
         
-        color: $dark;
-        font-size: 1.5em;
-        font-weight: 600;
-        letter-spacing: 0.01em;
-        text-decoration: none;
-        background: $light;
-        box-shadow: inset 0rem 0rem 0.6rem 0rem $middle2;
-        border: none;
-        border-radius: $br;
+        .restartButton:hover {
+          box-shadow: inset 13rem 0rem 0rem 0rem $accent;
+
+          .restartIcon {
+            color: $light;
+          }
+        }
+        
+        .restartButton:active {
+          .restartIcon {
+            font-size: 3.6em;
+          }
+        }
+        
+        .current {
+          margin: 0.5rem;
+        
+          height: 6rem;
+          width: 6rem;
+        
+          color: $dark;
+          font-size: 6em;
+        }
       }
 
-      .citiesDropdown:focus {
-        outline: none;
+      .gameGrid {
+        .cells {
+          margin: 0.5rem;
+          margin-bottom: 3rem;
+        
+          height: fit-content;
+          width: fit-content;
+
+          border-radius: $br;
+          box-shadow: 0rem 0rem 0.6rem 0rem $middle2;
+
+          padding: 0.2rem;
+
+          background: $middle2;
+
+          display: grid;
+          grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+          grid-gap: 0.3rem;
+      
+          .gridButton {
+            height: 12rem;
+            width: 12rem;
+            
+            border: 0rem solid $dark;
+            border-radius: 0.1rem;
+            
+            padding-top: 1.5rem;
+            
+            color: $accent;
+            font-size: 9em;
+            
+            background: $light;
+            
+            transition: ease-out 0.2s;
+
+            display: flex;
+            justify-content: center;
+            align-content: center;
+          }
+          
+          .gridButton:hover {
+            background: $middle3;
+          }
+          
+          .gridButton:active {
+            background: $middle2;
+          }
+        }
+
+        .gameConclusion {
+          margin: 2rem;
+
+          box-shadow: 0rem 0rem 0.6rem 0rem $middle3;
+
+          padding: 1rem 6rem;
+
+          .gameConclusionText {
+            color: $middle;
+            font-size: 6em;
+          }
+        }
       }
     }
 
-    .weatherTable {
-      border-collapse: collapse;
-      width: 100%;
-      justify-content: space-between;
+    // Notes component
+    .notes {
+      margin: auto;
 
-      tr:nth-child(odd) {
-        background: linear-gradient(to left, $middle3, $light);
+      height: 85vh;
+      width: 90vw;
+
+      display: flex;
+      flex-direction: column;
+
+      .notesForm {
+        width: 30rem;
+
+        padding: 5rem 0rem 5rem 0rem;
+
+        font-size: 1.3em;
+
+        .title {
+          margin-bottom: 1rem;
+
+          display: flex;
+          flex-direction: column;
+
+          .titleLabel {
+            margin-bottom: 0.2rem;
+          }
+
+          .titleInput {
+            width: 100%;
+            box-sizing: border-box;
+
+            border: 2px solid $middle2;
+            border-radius: $br;
+
+            font-size: 1em;
+          }
+
+          .titleInput:focus {
+            outline: none;
+            border: 2px solid $accent;
+          }
+        }
+        
+        .body {
+          margin-bottom: 2rem;
+
+          display: flex;
+          flex-direction: column;
+
+          .bodyLabel {
+            margin-bottom: 0.2rem;
+          }
+
+          .bodyInput {
+            height: 8rem;
+            width: 100%;
+            box-sizing: border-box;
+
+            border: 2px solid $middle2;
+            border-radius: $br;
+
+            font-size: 1em;
+          }
+
+          .bodyInput:focus {
+            outline: none;
+            border: 2px solid $accent;
+          }
+        }
+
+        .submitButton {
+          width: 100%;
+
+          padding: 0.6rem 0rem;
+
+          border: none;
+          border-radius: $br;
+          box-shadow: inset 0rem 0rem 0.5rem 0rem $middle;
+
+          color: $dark;
+          font-size: 1.2em;
+          font-weight: 600;
+          letter-spacing: 0.01em;
+
+          transition: ease-out 0.4s;
+        }
+        
+        .submitButton:hover {
+          box-shadow: inset 30rem 0rem 0rem 0rem $accent;
+
+          color: $light;
+        }
+        
+        .submitButton:active {
+          font-size: 1.1em;
+
+          transition: ease-out 0.1s;
+        }
       }
 
-      .weatherText {
-        font-size: 1.7em;
-        text-transform: capitalize;
-      }
+      .noteList {
+        border: 0px solid $dark;
 
-      #day {
-        padding-left: 1.2rem;
-        padding-right: 1.2rem;
+        padding-top: 2rem;
+        padding-left: 0.2rem;
 
-        width: 10rem;
-        color: $dark;
-      }
+        list-style-type: none;
+
+        .noteContainer {
+          display: flex;
+          justify-content: space-between;
+
+          .noteText {
+            .noteTitle {
+              margin: 1rem;
       
-      #temperature {
-        padding-left: 4rem;
-        color: $dark;
-      }
+              color: $middle;
+              font-size: 1.5em;
+              font-weight: bold;
+            }
       
-      #description {
-        color: $dark;
-      }
+            .noteBody {
+              margin: 1rem;
 
-      .weatherImage {
-        margin: 0.4rem;
-        align-self: center;
-      
-        border-radius: 0.2rem;
-        background: $middle2;
+              color: $middle2;
+              font-size: 1em;
+            }
+          }
+
+          .noteDeleteButton {
+            margin: 0.5rem;
+
+            width: fit-content;
+            height: fit-content;
+
+            border: none;
+            border-radius: $br;
+            box-shadow: inset 0rem 0rem 0.5rem 0rem $middle2;
+
+            padding: 0.5rem 1rem;
+
+            color: $dark;
+            font-size: 1em;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+
+            transition: ease-out 0.2s;
+          }
+          
+          .noteDeleteButton:hover {
+            box-shadow: inset 5rem 0rem 0rem 0rem $middle2;
+
+            color: $light;
+          }
+        
+          .submitButton:active {
+            font-size: 0.8em;
+
+            transition: ease-out 0.1s;
+          }
+        }
       }
     }
   }
-}
 
-// Tic Tac Toe component
-.tictactoe {
-  display: flex;
-  flex-direction: column;
-  align-content: flex-start;
-  height: 85vh;
-  margin: auto;
-  
-  /* Game info */
-  .gameInfo {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  
-    padding: 5rem 0rem 5rem 0rem;
+  // Footer component
+  .footerContainer {
+    background: $middle3;
 
-    .restartButton {
-      margin: 0.5rem;
-      
-      width: 4rem;
-      height: 4rem;
-      
-      box-shadow: inset 0rem 0rem 0.5rem 0rem $middle;
-      transition: ease-out 0.7s;
-      border: none;
-      border-radius: $br;
-      background:  $light;
-      
-      .restartIcon {
-        font-size: 4em;
-        color: $dark;
-      }
-    }
-    
-    .restartButton:hover {
-      box-shadow: inset 13rem 0rem 0rem 0rem $accent;
-      
-      .restartIcon {
-        color: $light;
-      }
-    }
-    
-    .restartButton:active {
-      width: 3.7rem;
-      height: 3.7rem;
-      
-      .restartIcon {
-        font-size: 3.7em;
-      }
-    }
-    
-    .current {
-      margin: 0.5rem;
-    
-      width: 6rem;
-      height: 6rem;
-    
-      color: $dark;
-      font-size: 6em;
-    }
-  }
-  
-  /* Game grid */
-  .gameGrid {
-    .cells {
-      margin: 0.5rem;
-      margin-bottom: 3rem;
-    
-      width: fit-content;
-      height: fit-content;
-    
-      box-shadow: 0rem 0rem 0.6rem 0rem $middle2;
-      border-radius: $br;
-    
-      display: grid;
-      grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-      grid-gap: 0.3rem;
+    .footerText, .footerInterpunct, .footerLink {
       padding: 0.2rem;
-      background: $middle2;
-  
-      .gridButton {
-        display: flex;
-        justify-content: center;
-        align-content: center;
-      
-        width: 12rem;
-        height: 12rem;
-      
-        border: 0rem solid $dark;
-        border-radius: 0.1rem;
-        
-        padding-top: 1.5rem;
-        background: $light;
-        color: $accent;
-        font-size: 9em;
-
-        transition: ease-out 0.2s;
-      }
-      
-      .gridButton:hover {
-        background: $middle3;
-      }
-      
-      .gridButton:active {
-        background: $middle2;
-      }
-    }
-
-    // Game conclusion screen
-    .gameConclusion {
-      box-shadow: 0rem 0rem 0.6rem 0rem $middle3;
-      padding: 1rem 6rem;
-
-      .gameConclusionText {
-        color: $middle;
-        font-size: 6em;
-      }
-    }
-  }
-}
-
-// Notes component
-.notes {
-  display: flex;
-  flex-direction: column;
-  height: 85vh;
-  width: 90vw;
-  margin: auto;
-
-  .notesForm {
-    padding: 5rem 0rem 5rem 0rem;
-    width: 30rem;
-
-    font-size: 1.3em;
-
-    .title {
-      margin-bottom: 1rem;
-
-      display: flex;
-      flex-direction: column;
-
-      .titleLabel {
-        margin-bottom: 0.2rem;
-
-      }
-
-      .titleInput {
-        width: 100%;
-        box-sizing: border-box;
-
-        border: 2px solid $middle2;
-
-        font-size: 1em;
-      }
-
-      .titleInput:focus {
-        outline: none;
-        border: 2px solid $accent;
-      }
-    }
-    
-    .body {
-      margin-bottom: 2rem;
-
-      display: flex;
-      flex-direction: column;
-
-      .bodyLabel {
-        margin-bottom: 0.2rem;
-      }
-
-      .bodyInput {
-        width: 100%;
-        height: 8rem;
-        box-sizing: border-box;
-
-        border: 2px solid $middle2;
-
-        font-size: 1em;
-      }
-
-      .bodyInput:focus {
-        outline: none;
-        border: 2px solid $accent;
-      }
-    }
-
-    .submitButton {
-      width: 100%;
 
       color: $dark;
-      font-size: 1.2em;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-      box-shadow: inset 0rem 0rem 0.5rem 0rem $middle;
-      transition: ease-out 0.4s;
-      border: none;
-      border-radius: $br;
-      padding: 0.6rem 0rem;
+      font-size: 0.80em;
     }
-    
-    .submitButton:hover {
-      box-shadow: inset 30rem 0rem 0rem 0rem $accent;
-      color: $light;
+
+    .footerLink {
+      color: $accent2;
+      text-decoration: none;
     }
-    
-    .submitButton:active {
-      font-size: 1.1em;
-      transition: ease-out 0.1s;
-    }
-  }
 
-  .noteList {
-    border: 0px solid $dark;
-    padding-top: 2rem;
-    padding-left: 0.2rem;
-
-    list-style-type: none;
-
-    .noteContainer {
-      display: flex;
-      justify-content: space-between;
-
-      .noteText {
-        .noteTitle {
-          margin: 1rem;
-  
-          font-weight: bold;
-          font-size: 1.5em;
-          color: $middle;
-        }
-  
-        .noteBody {
-          margin: 1rem;
-
-          font-size: 1em;
-          color: $middle2;
-        }
-      }
-
-      .noteDeleteButton {
-        width: fit-content;
-        height: fit-content;
-
-        color: $dark;
-        font-size: 1em;
-        font-weight: 600;
-        letter-spacing: 0.01em;
-        box-shadow: inset 0rem 0rem 0.5rem 0rem $middle2;
-        transition: ease-out 0.2s;
-        border: none;
-        border-radius: $br;
-        padding: 0.5rem 1rem;
-      }
-      
-      .noteDeleteButton:hover {
-        box-shadow: inset 5rem 0rem 0rem 0rem $middle2;
-        color: $light;
-      }
-    
-      .submitButton:active {
-        font-size: 0.8em;
-        transition: ease-out 0.1s;
-      }
+    .footerLink:hover {
+      color: $accent;
     }
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .page {
+    .content {
+      .navBar {
+        .pageTitle {
+          display: none;
+        }
 
-// Footer component
-.footerContainer {
-  position: fixed;
-  bottom: 0;
-  background: $middle3;
+        .navItems {
+          .navItem {
+            font-size: 0.8em;
+          }
 
-  display: flex;
-  width: 100%;
-  height: 5vh;
-  padding-left: 5rem;
-  align-items: center;
+          .navItem:active {
+            font-size: 0.7em;
+          }
+        }
+      }
 
-  .footerText, .footerInterpunct, .footerLink {
-    font-size: 0.80em;
-    padding: 0.2rem;
-    color: $dark;
-  }
+      .about {
+        .introduction {
+          padding: 1rem 0rem 2rem 0rem;
 
-  .footerLink {
-    color: $accent2;
-    text-decoration: none;
-  }
+          align-items: center;
 
-  .footerLink:hover {
-    color: $accent;
+          .introductionTitle {
+            font-size: 2em;
+          }
+
+          .introductionBody {
+            font-size: 1.2em;
+          }
+        }
+        .projects {
+          .projectLinks {
+            flex-direction: column;
+            align-items: center;
+
+            .projectLink {
+              margin: 0.5rem;
+
+              height: 3.5rem;
+              width: 11rem;
+
+
+              font-size: 1em;
+            }
+
+            .projectLink:hover {
+              box-shadow: inset 13rem 0rem 0rem 0rem $accent;
+  
+              color: $light;
+            }
+            
+            .projectLink:active {
+              font-size: 0.9em;
+  
+              transition: ease-out 0.05s;
+            }
+          }
+        }
+      }
+
+      .weather {
+        .weatherTableContainer {
+          margin: 0rem;
+  
+          padding: 1rem;
+  
+          .dropdownContainer {
+            .citiesDropdown {
+              margin-bottom: 0.5rem;
+
+              padding: 0.4rem 0.2rem;
+            
+              font-size: 1em;
+            }
+          }
+  
+          .weatherTable {
+            .weatherText {
+              font-size: 1em;
+            }
+  
+            #day {
+              width: 3rem;
+  
+              padding-left: 0.5rem;
+              padding-right: 0rem;
+            }
+            
+            #temperature {
+              font-size: 0.8em;
+              padding-left: 1rem;
+              padding-right: 1rem;
+            }
+  
+            .weatherImage {
+              margin: 0.4rem;
+              width: 3rem;
+            }
+          }
+        }
+      }
+
+      .tictactoe {
+        .gameInfo {
+          padding: 1rem 0rem 0rem 0rem;
+          .restartButton {
+            margin: 0.2rem;
+            
+            height: 2.5rem;
+            width: 2.5rem;
+
+            display: flex;
+            align-items: center;
+            .restartIcon {
+              font-size: 2.5em;
+            }
+          }
+          
+          .restartButton:active {
+            .restartIcon {
+              font-size: 2.4em;
+            }
+          }
+          
+          .current {
+            margin: 0.2rem;
+          
+            height: 2.5rem;
+            width: 2.5rem;
+          
+            font-size: 2.5em;
+          }
+        }
+  
+        .gameGrid {
+          .cells {
+            margin: 0.5rem;
+          
+            .gridButton {
+              height: 6rem;
+              width: 6rem;
+              
+              font-size: 4em;
+            }
+          }
+  
+          .gameConclusion {
+            padding: 1rem 6rem;
+  
+            .gameConclusionText {
+              font-size: 3em;
+            }
+          }
+        }
+      }
+
+      .notes {
+        .notesForm {
+          width: 100%;
+  
+          padding: 2rem 0rem 2rem 0rem;
+  
+          font-size: 1em;
+  
+          .title {
+            margin-bottom: 0.5rem;
+          }
+          
+          .body {
+            margin-bottom: 1rem;
+          }
+  
+          .submitButton {
+            padding: 0.4rem 0rem;
+          }
+        }
+  
+        .noteList {
+          padding-top: 1rem;
+          padding-left: 0rem;
+  
+          .noteContainer {
+            .noteText {
+              .noteTitle {
+                margin: 0.5rem 0.2rem;
+
+                font-size: 1em;
+              }
+        
+              .noteBody {
+                margin: 1rem 0.2rem;
+  
+                font-size: 0.8em;
+              }
+            }
+  
+            .noteDeleteButton {
+              margin: 0.2rem;
+  
+              padding: 0.3rem 0.5rem;
+              
+              font-size: 0.8em;
+            }
+
+            .submitButton:active {
+              font-size: 0.7em;
+            }
+          }
+        }
+      }
+    }
   }
 }
